@@ -305,42 +305,125 @@ color colorAxiSecondary							= #282424					// AxiSecondary
 //  ══  Variables  ══
 
 //  ══  Session Sydney  ══
-show_sesSydney		= input(true,							title = '',															group = 'Sydney Session') 
-sesSydney_ses		= input.session('2300-0500',			title = '',						inline = 'sesSydney',				group = 'Sydney Session')
-sesSydney_color		= input.color(#F0B884,					title = '',						inline = 'sesSydney',				group = 'Sydney Session')
-sesSydney_text		= 'Sydney'
+grpSydney			= " Sydney "
+sesSydneyShow		= input(false,										title = '',					inline = 'lineSydney',			group = grpSydney) 
+sesSydneySess		= input.session('1700-0200',						title = '',					inline = 'lineSydney',			group = grpSydney)
+sesSydneyColor		= input.color(color.new(colorUltrRose20, 60),		title = '',					inline = 'lineSydney',			group = grpSydney)
+sesSydneyText		= 'Sydney'
 
 //  ══  Session Tokyo  ══
-show_sesTokyo		= input(true,							title = '',															group = 'Tokyo Session') 
-sesTokyo_ses		= input.session('0000-0600',			title = '',						inline = 'sesTokyo',				group = 'Tokyo Session')
-sesTokyo_color		= input.color(#0CC1C0,					title = '',						inline = 'sesTokyo',				group = 'Tokyo Session')
-sesTokyo_text		= 'Tokyo'
+grpTokyo			= " Tokyo "
+sesTokyoShow		= input(true,										title = '',					inline = 'lineTokyo',			group = grpTokyo) 
+sesTokyoSess		= input.session('1800-0300',						title = '',					inline = 'lineTokyo',			group = grpTokyo)
+sesTokyoColor		= input.color(color.new(colorUtlrMenta20, 60),		title = '',					inline = 'lineTokyo',			group = grpTokyo)
+sesTokyoText		= 'Tokyo'
 
-show_sesLondon		= input(true,							title = '',															group = ' London Session') 
-seslondon_ses		= input.session('0800-1630',			title = '',						inline = 'seslondon',				group = ' London Session')
-seslondon_color		= input.color(#ACBBE8,					title = '',						inline = 'seslondon',				group = ' London Session')
-seslondon_text		= 'London'
+//  ══  Session London  ══
+grpLondon			= " Londres "
+sesLondonShow		= input(true,										title = '',					inline = 'lineLondres',			group = grpLondon) 
+sesLondonSess		= input.session('0200-1100',						title = '',					inline = 'lineLondres',			group = grpLondon)
+sesLondonColor		= input.color(color.new(colorBrightYellow20, 60),	title = '',					inline = 'lineLondres',			group = grpLondon)
+sesLondonText		= 'London'
 
-//  ══  Session NewYork  ══
-show_sesNewyork		= input(true,							title = '',															group = 'Newyork Session') 
-sesNewyork_ses		= input.session('1300-2200',			title = '',						inline = 'sesNewyork',				group = 'Newyork Session')
-sesNewyork_color	= input.color(#C5ACE8,					title = '',						inline = 'sesNewyork',				group = 'Newyork Session')
-sesNewyork_text		= 'New York'
+//  ══  Session New York  ══
+grpNewYork			= " New York "
+sesNewyorkShow		= input(true,										title = '',					inline = 'lineNewyork',			group = grpNewYork) 
+sesNewyorkSess		= input.session('0700-1600',						title = '',					inline = 'lineNewyork',			group = grpNewYork)
+sesNewyorkColor		= input.color(color.new(colorUltrLyla, 60),			title = '',					inline = 'lineNewyork',			group = grpNewYork)
+sesNewyorkText		= 'New York'
 
-show_sesNYSE		= input(true,							title = '',															group = 'NYSE Session') 
-sesNYSE_ses			= input.session('1430-2200',			title = '',						inline = 'sesNYSE',					group = 'NYSE Session')
-sesNYSE_color		= input.color(#87c2d4,					title = '',						inline = 'sesNYSE',					group = 'NYSE Session')
-sesNYSE_text		= 'NYSE'
+//  ══  Session NYSE  ══
+grpNYSE				= " NYSE "
+sesNYSEShow			= input(false,										title = '',					inline = 'lineNYSE',			group = grpNYSE) 
+sesNYSESess			= input.session('0830-1500',						title = '',					inline = 'lineNYSE',			group = grpNYSE)
+sesNYSEColor		= input.color(color.new(colorUltrMenta30, 60),		title = '',					inline = 'lineNYSE',			group = grpNYSE)
+sesNYSEText			= 'NYSE'
+
+//  ══  Time Zone  ══
+string timeNYSE				= "UTC-5"									//	'UTC-5'
+string timeNewY				= "America/New_York"						//	'UTC.4'
+string timeChig				= "America/Chicago"							//	'UTC-5'
+string timeArge				= "America/Argentina/Buenos_Aires"			//	'UTC-3'
+string timeLond				= "Europe/London"							//	'UTC+1'
+string timeToky				= "Asia/Tokyo"								//	'UTC+9'
+string timeSydn				= "Australia/Sydney" 						//	'UTC+10'
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Options  ══
+
+optionLines		= input.string  (defval="Dashed",		title="Line",    		options = ["Solid", "Dotted", "Dashed"])
+optionTextSize	= input.string  (defval="Small",		title="Size",    		options = ["Tiny", "Small", "Auto", "Normal"])
+
+optionSession	= input.string  (defval="Chicago",		title="Sesiones",    	options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+optionKillZ		= input.string  (defval="Chicago",		title="KillZones",    	options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Types  ══
+
+type OHL
+    float O = open
+    float H = high
+    float L = low
+    float C = close
+    float V = volume
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Switch  ══
+
+string switchLines = switch optionLines
+	"Solid"		 => line.style_solid			//  Solid
+	"Dashed"	 => line.style_dashed			//  Dashed
+	"Dotted"	 => line.style_dotted			//  Dotted
+	=> line.style_solid	
+
+string switchText = switch optionTextSize
+	"Auto"		=> size.auto
+	"Tiny"		=> size.tiny
+	"Small"		=> size.small
+	"Normal"	=> size.normal
+
+string switchSession = switch optionSession
+	"NYSE"	 	 => timeNYSE
+	"New York"	 => timeNewY
+	"Chicago"	 => timeChig
+	"Londres"	 => timeLond
+	"Tokyo"		 => timeToky
+	"Sydney"	 => timeSydn
+	"Argentina"	 => timeArge
+	=> timeChig	
+
+string switchKillZone = switch optionKillZ
+	"NYSE"	 	 => timeNYSE
+	"New York"	 => timeNewY				
+	"Chicago"	 => timeChig	
+	"Londres"	 => timeLond	
+	"Tokyo"		 => timeToky
+	"Sydney"	 => timeSydn
+	"Argentina"	 => timeArge
+	=> timeChig
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Instances  ══
+
+ohl = OHL.new()
 
 //  ══  Info Table  ══
-Show_Info_Table		= input(true, 'Info Table', group   = 'Table')
+ShowInfoTable		= input(true,		'Info Table',		group = 'Table')
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Functions  ══
 
 //  ══  Zones  ══
-On_sesTokyo			= math.sign(nz(time(timeframe.period,		sesTokyo_ses,		'UTC+0')))
-On_sesLondon		= math.sign(nz(time(timeframe.period,		seslondon_ses,		'UTC+0')))
-On_sesNewyork		= math.sign(nz(time(timeframe.period,		sesNewyork_ses,		'UTC+0')))
-On_sesNYSE			= math.sign(nz(time(timeframe.period,		sesNYSE_ses,		'UTC+0')))
-On_sesSydney		= math.sign(nz(time(timeframe.period,		sesSydney_ses,		'UTC+0')))
+OnSessTokyo			= math.sign(nz(time(timeframe.period,		sesTokyoSess,		switchSession)))
+OnSessLondon		= math.sign(nz(time(timeframe.period,		sesLondonSess,		switchSession)))
+OnSessNewyork		= math.sign(nz(time(timeframe.period,		sesNewyorkSess,		switchSession)))
+OnSessNYSE			= math.sign(nz(time(timeframe.period,		sesNYSESess,		switchSession)))
+OnSessSydney		= math.sign(nz(time(timeframe.period,		sesSydneySess,		switchSession)))
 
 //High & Low Session Detector 
 LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
@@ -383,91 +466,76 @@ LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
 
 	[High , Low ]
 
-if show_sesSydney 
-	[HighS, LowS]	= LowHighSessionDetector(On_sesSydney,		sesSydney_color,	sesSydney_text)
+if sesSydneyShow
+	[HighS, LowS]	= LowHighSessionDetector(OnSessSydney,		sesSydneyColor,			sesSydneyText)
 
-if show_sesTokyo 
-	[HighT, LowT]	= LowHighSessionDetector(On_sesTokyo,		sesTokyo_color,		sesTokyo_text)
+if sesTokyoShow
+	[HighT, LowT]	= LowHighSessionDetector(OnSessTokyo,		sesTokyoColor,			sesTokyoText)
 
-if show_sesLondon 
-	[HighL, LowL]	= LowHighSessionDetector(On_sesLondon,		seslondon_color,	seslondon_text)
+if sesLondonShow
+	[HighL, LowL]	= LowHighSessionDetector(OnSessLondon,		sesLondonColor,			sesLondonText)
 
-if show_sesNewyork 
-	[HighN, LowN]	= LowHighSessionDetector(On_sesNewyork,		sesNewyork_color,	sesNewyork_text)
+if sesNewyorkShow
+	[HighN, LowN]	= LowHighSessionDetector(OnSessNewyork,		sesNewyorkColor,		sesNewyorkText)
 
-if show_sesNYSE
-	[HighNY, LowNY]	= LowHighSessionDetector(On_sesNYSE,		sesNYSE_color,		sesNYSE_text)
+if sesNYSEShow
+	[HighNY, LowNY]	= LowHighSessionDetector(OnSessNYSE,		sesNYSEColor,			sesNYSEText)
 
 //Info Table
 
-// var Info_Table = table.new(position.top_right, 4, 10, bgcolor = #283c74, border_color = #53609bcb, border_width = 1, 
-//  frame_color = #373a46 , frame_width = 1)
+var Info_Table	= table.new(position.top_right, 4, 7,
+ bgcolor		= #283c74,	border_color	= #53609bcb,
+ border_width	= 1,		frame_color		= #373a46,
+ frame_width	= 1)
 
-// if Show_Info_Table
-// 	table.cell(Info_Table, 0, 0, 'TradingFinder', text_color = color.white, text_size = size.small)
-// 	table.merge_cells(Info_Table, 0, 0, 3, 0)
-// 	table.cell(Info_Table, 0, 1, 'Session', text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 1, 1, 'Status', text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 1, 'Start(UTC)', text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 1, 'End(UTC)', text_color = color.white, text_size = size.small)
+if ShowInfoTable
+	table.cell			(Info_Table, 0, 0,		'Trading',			text_color = color.white,			text_size = size.small)
+	table.merge_cells	(Info_Table, 0, 0, 3, 0)
+	table.cell			(Info_Table, 0, 1,		'Sesión',			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 1, 1,		'Estado',			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 2, 1,		'Inicio',			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 3, 1,		'Cierre',			text_color = color.white,			text_size = size.small)
 
-// 	table.cell(Info_Table, 0, 2, sesasia_text, text_color = sesasia_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 3, sesSydney_text, text_color = sesSydney_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 4, sesTokyo_text, text_color = sesTokyo_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 5, sesShanghai_text, text_color = color.new(sesShanghai_color, 1), text_size = size.small)   
-// 	table.cell(Info_Table, 0, 6, sesEuro_text, text_color = sesEuro_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 7, seslondon_text, text_color = seslondon_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 8, sesNewyork_text, text_color = sesNewyork_color, text_size = size.small)
-// 	table.cell(Info_Table, 0, 9, sesNYSE_text, text_color = sesNYSE_color, text_size = size.small)
+	table.cell			(Info_Table, 0, 2,		sesSydneyText,		text_color = sesSydneyColor,		text_size = size.small)
+	table.cell			(Info_Table, 0, 3,		sesTokyoText,		text_color = sesTokyoColor,			text_size = size.small)
+	table.cell			(Info_Table, 0, 4,		sesLondonText,		text_color = sesLondonColor,		text_size = size.small)
+	table.cell			(Info_Table, 0, 5,		sesNewyorkText,		text_color = sesNewyorkColor,		text_size = size.small)
+	table.cell			(Info_Table, 0, 6,		sesNYSEText,		text_color = sesNYSEColor,			text_size = size.small)
 	
-// 	table.cell(Info_Table, 1, 2, (On_sesasia ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesasia ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 3, (On_sesSydney ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesSydney ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 4, (On_sesTokyo ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesTokyo ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 5, (On_sesShanghai ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesShanghai ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 6, (On_sesEuro ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesEuro ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 7, (On_sesLondon ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesLondon ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 8, (On_sesNewyork ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesNewyork ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 9, (On_sesNYSE ? 'Open' : 'Closed')
-// 	  , bgcolor = On_sesNYSE ? #56a3a6 : #db504a
-// 	  , text_color = color.rgb(0, 0, 0)
-// 	  , text_size = size.small)
 
-// 	table.cell(Info_Table, 2, 2, '23:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 3, '23:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 4, '00:00' , text_color = color.white, text_size = size.small) 
-// 	table.cell(Info_Table, 2, 5, '01:30' , text_color = color.white, text_size = size.small)  
-// 	table.cell(Info_Table, 2, 6, '07:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 7, '08:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 8, '13:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 2, 9, '14:30' , text_color = color.white, text_size = size.small)
+	table.cell			(Info_Table, 1, 2,		(OnSessSydney		? 'Open'		: 'Closed')
+	  , bgcolor									= OnSessSydney		? #56a3a6		: #db504a
+	  , text_color								= color.rgb(0, 0, 0)
+	  , text_size								= size.small)
 
-// 	table.cell(Info_Table, 3, 2, '06:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 3, '05:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 4, '06:00' , text_color = color.white, text_size = size.small) 
-// 	table.cell(Info_Table, 3, 5, '06:57' , text_color = color.white, text_size = size.small)  
-// 	table.cell(Info_Table, 3, 6, '16:30' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 7, '16:30' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 8, '22:00' , text_color = color.white, text_size = size.small)
-// 	table.cell(Info_Table, 3, 9, '22:00' , text_color = color.white, text_size = size.small)
+	table.cell			(Info_Table, 1, 3,		(OnSessTokyo		? 'Open'		: 'Closed')
+	  , bgcolor									= OnSessTokyo		? #56a3a6		: #db504a
+	  , text_color								= color.rgb(0, 0, 0)
+	  , text_size								= size.small)
 
+	table.cell			(Info_Table, 1, 4,		(OnSessLondon		? 'Open'		: 'Closed')
+	  , bgcolor									= OnSessLondon		? #56a3a6		: #db504a
+	  , text_color								= color.rgb(0, 0, 0)
+	  , text_size								= size.small)
+
+	table.cell			(Info_Table, 1, 5,		(OnSessNewyork		? 'Open'		: 'Closed')
+	  , bgcolor									= OnSessNewyork		? #56a3a6		: #db504a
+	  , text_color								= color.rgb(0, 0, 0)
+	  , text_size								= size.small)
+
+	table.cell			(Info_Table, 1, 6,		(OnSessNYSE			? 'Open'		: 'Closed')
+	  , bgcolor									= OnSessNYSE		? #56a3a6		: #db504a
+	  , text_color								= color.rgb(0, 0, 0)
+	  , text_size								= size.small)
+
+	table.cell			(Info_Table, 2, 2,		'17:00' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 2, 3,		'18:00' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 2, 4,		'02:00' ,			text_color = color.white,			text_size = size.small) 
+	table.cell			(Info_Table, 2, 5,		'07:00' ,			text_color = color.white,			text_size = size.small)  
+	table.cell			(Info_Table, 2, 6,		'08:30' ,			text_color = color.white,			text_size = size.small)
+
+	table.cell			(Info_Table, 3, 2,		'02:00' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 3, 3,		'03:00' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 3, 4,		'11:00' ,			text_color = color.white,			text_size = size.small) 
+	table.cell			(Info_Table, 3, 5,		'15:57' ,			text_color = color.white,			text_size = size.small)  
+	table.cell			(Info_Table, 3, 6,		'15:00' ,			text_color = color.white,			text_size = size.small)
