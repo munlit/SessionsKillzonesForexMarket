@@ -8,324 +8,323 @@
 indicator("Sessions - Forex Market [@Ultr]", "Session FM[@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
 
 //  ═════════════════
-//  ═══  Session  ═══
+//  ═══  FM  ═══
 //  ═══  Colors  ═══
 
 //  ═══  Standard  ═══
-	//  color colorAqua			            	= color.aqua		// #00BCD4  Aqua
-	//  color colorBlue  	            		= color.blue		// #2196F3  Blue
-	//  color colorTeal			            	= color.teal		// #00897B  Teal
-	//  color colorGreen		            	= color.green		// #4CAF50  Green
-	//  color colorOlive		            	= color.olive		// #808000  Olive
-	//  color colorLime			            	= color.lime		// #00E676  Lime
-	//  color colorYellow	            		= color.yellow		// #FFEB3B  Yellow
-	//  color colorOrange	            		= color.orange		// #FF9800  Orange
-	//  color colorMaroon	            		= color.maroon		// #880E4F  Maroon
-	//  color colorRed				            = color.red			// #FF5252  Red
-	//  color colorFuchsia          			= color.fuchsia		// #E040FB  Fuchsia
-	//  color colorPurple	            		= color.purple		// #9C27B0  Purple
-	//  color colorNavy			            	= color.navy		// #311B92  Navy
-	//  color colorBlack		            	= color.black		// #363A45  Black
-	//  color colorGray			            	= color.gray		// #787B86  Gray
-	//  color colorSilver	            		= color.silver		// #B2B5BE  Silver
-	//  color colorWhite		            	= color.white		// #FFFFFF  White
+	//  color colorAqua							= color.aqua		// #00BCD4		Aqua
+	//  color colorBlue							= color.blue		// #2196F3		Blue
+	//  color colorTeal							= color.teal		// #00897B		Teal
+	//  color colorGreen						= color.green		// #4CAF50		Green
+	//  color colorOlive						= color.olive		// #808000		Olive
+	//  color colorLime							= color.lime		// #00E676		Lime
+	//  color colorYellow						= color.yellow		// #FFEB3B		Yellow
+	//  color colorOrange						= color.orange		// #FF9800		Orange
+	//  color colorMaroon						= color.maroon		// #880E4F		Maroon
+	//  color colorRed							= color.red			// #FF5252		Red
+	//  color colorFuchsia						= color.fuchsia		// #E040FB		Fuchsia
+	//  color colorPurple						= color.purple		// #9C27B0		Purple
+	//  color colorNavy							= color.navy		// #311B92		Navy
+	//  color colorBlack						= color.black		// #363A45		Black
+	//  color colorGray							= color.gray		// #787B86		Gray
+	//  color colorSilver						= color.silver		// #B2B5BE		Silver
+	//  color colorWhite						= color.white		// #FFFFFF		White
 
 //  ═══  Ameritrade  ═══
-	//  color colorAmeritradeWhite    			= #FFFFFF           // AmeritradeWhite
-	//  color colorAmeritradeGrayPlatinum 		= #F7F7F7           // AmeritradeGrayPlatinum
-	//  color colorAmeritradeGrayNickel   		= #F1F1F1           // AmeritradeGrayNickel
-	//  color colorAmeritradeGrayNickelDark20 	= #C0C0C0           // AmeritradeGrayNickelDark20
-	//  color colorAmeritradeGrayAluminum 		= #E6E7E9           // AmeritradeGrayAluminum
-	//  color colorAmeritradeGrayAsh  			= #D8D8D8           // AmeritradeGrayAsh
-	//  color colorAmeritradeGrayStone    		= #999999           // AmeritradeGrayStone
-	//  color colorAmeritradeGrayIron 			= #666666           // AmeritradeGrayIron
-	//  color colorAmeritradeGrayCharcoal 		= #333333           // AmeritradeGrayCharcoal
-	//  color colorAmeritradeBlack    			= #000000           // AmeritradeBlack
-	//  color colorAmeritradeGreenCabbage 		= #EBF6E9           // AmeritradeGreenCabbage
-	//  color colorAmeritradeGreenVerdeLight70  = #B4D6B2           // AmeritradeGreenVerdeLight70
-	//  color colorAmeritradeGreenVerdeLight50  = #83BC7F           // AmeritradeGreenVerdeLight50
-	//  color colorAmeritradeGreenVerdeNat    	= #40a829           // AmeritradeGreenVerdeNat
-	//  color colorAmeritradeGreenVerdeLight20  = #399333           // AmeritradeGreenVerdeLight20
-	//  color colorAmeritradeGreenVerde   		= #087900           // AmeritradeGreenVerde
-	//  color colorAmeritradeGreenVerdeDark20 	= #066000           // AmeritradeGreenVerdeDark20
-	//  color colorAmeritradeGreenMoss    		= #BEE7D3           // AmeritradeGreenMoss
-	//  color colorAmeritradeGreenMint    		= #6DC4BC           // AmeritradeGreenMint
-	//  color colorAmeritradeGreenPine    		= #38635A           // AmeritradeGreenPine
-	//  color colorAmeritradeRedRose  			= #FAD1CF           // AmeritradeRedRose
-	//  color colorAmeritradeRedRojaLight50   	= #E08988           // AmeritradeRedRojaLight50
-	//  color colorAmeritradeRedRojaLight20   	= #CD4241           // AmeritradeRedRojaLight20
-	//  color colorAmeritradeRedRoja  			= #C11312           // AmeritradeRedRoja
-	//  color colorAmeritradeRedRojaDark20    	= #940F0E           // AmeritradeRedRojaDark20
-	//  color colorAmeritradeorangePeach  		= #FCE7CA           // AmeritradeorangePeach
-	//  color colorAmeritradeorangeCarrot 		= #ED8902           // AmeritradeorangeCarrot
-	//  color colorAmeritradeorangeYam    		= #BD5310           // AmeritradeorangeYam
-	//  color colorAmeritradeblueFrost    		= #E1EEF9           // AmeritradeblueFrost
-	//  color colorAmeritradeblueLagoon   		= #316486           // AmeritradeblueLagoon
-	//  color colorAmeritradeblueNavy 		    = #2A5673           // AmeritradeblueNavy
-	//  color colorAmeritradeblueNcean    		= #64A1C6           // AmeritradeblueNcean
-	//  color colorAmeritradepurpleEggPlant    	= #732181           // AmeritradepurpleEggPlant
+	//  color colorAmeritradeWhite				= #FFFFFF			// AmeritradeWhite
+	//  color colorAmeritradeGrayPlatinum		= #F7F7F7			// AmeritradeGrayPlatinum
+	//  color colorAmeritradeGrayNickel			= #F1F1F1			// AmeritradeGrayNickel
+	//  color colorAmeritradeGrayNickelDark20	= #C0C0C0			// AmeritradeGrayNickelDark20
+	//  color colorAmeritradeGrayAluminum		= #E6E7E9			// AmeritradeGrayAluminum
+	//  color colorAmeritradeGrayAsh			= #D8D8D8			// AmeritradeGrayAsh
+	//  color colorAmeritradeGrayStone			= #999999			// AmeritradeGrayStone
+	//  color colorAmeritradeGrayIron			= #666666			// AmeritradeGrayIron
+	//  color colorAmeritradeGrayCharcoal		= #333333			// AmeritradeGrayCharcoal
+	//  color colorAmeritradeBlack				= #000000			// AmeritradeBlack
+	//  color colorAmeritradeGreenCabbage		= #EBF6E9			// AmeritradeGreenCabbage
+	//  color colorAmeritradeGreenVerdeLight70	= #B4D6B2			// AmeritradeGreenVerdeLight70
+	//  color colorAmeritradeGreenVerdeLight50	= #83BC7F			// AmeritradeGreenVerdeLight50
+	//  color colorAmeritradeGreenVerdeNat		= #40a829			// AmeritradeGreenVerdeNat
+	//  color colorAmeritradeGreenVerdeLight20	= #399333			// AmeritradeGreenVerdeLight20
+	//  color colorAmeritradeGreenVerde			= #087900			// AmeritradeGreenVerde
+	//  color colorAmeritradeGreenVerdeDark20	= #066000			// AmeritradeGreenVerdeDark20
+	//  color colorAmeritradeGreenMoss			= #BEE7D3			// AmeritradeGreenMoss
+	//  color colorAmeritradeGreenMint			= #6DC4BC			// AmeritradeGreenMint
+	//  color colorAmeritradeGreenPine			= #38635A			// AmeritradeGreenPine
+	//  color colorAmeritradeRedRose			= #FAD1CF			// AmeritradeRedRose
+	//  color colorAmeritradeRedRojaLight50		= #E08988			// AmeritradeRedRojaLight50
+	//  color colorAmeritradeRedRojaLight20		= #CD4241			// AmeritradeRedRojaLight20
+	//  color colorAmeritradeRedRoja			= #C11312			// AmeritradeRedRoja
+	//  color colorAmeritradeRedRojaDark20		= #940F0E			// AmeritradeRedRojaDark20
+	//  color colorAmeritradeorangePeach		= #FCE7CA			// AmeritradeorangePeach
+	//  color colorAmeritradeorangeCarrot		= #ED8902			// AmeritradeorangeCarrot
+	//  color colorAmeritradeorangeYam			= #BD5310			// AmeritradeorangeYam
+	//  color colorAmeritradeblueFrost			= #E1EEF9			// AmeritradeblueFrost
+	//  color colorAmeritradeblueLagoon			= #316486			// AmeritradeblueLagoon
+	//  color colorAmeritradeblueNavy			= #2A5673			// AmeritradeblueNavy
+	//  color colorAmeritradeblueNcean			= #64A1C6			// AmeritradeblueNcean
+	//  color colorAmeritradepurpleEggPlant		= #732181			// AmeritradepurpleEggPlant
 
 //  ═══  Axi  ═══
-	//  color colorAxiPrimary			        = #fc404d           // AxiPrimary
-	//  color colorAxiSecondary		            = #282424           // AxiSecondary
-	//  color colorAxiAccent			        = #61ce70           // AxiAccent
-	//  color colorAxi7a46f22			        = #d11c36           // Axi7a46f22
-	//  color colorAxi1519066c		            = #fc404d           // Axi1519066c
-	//  color colorAxi3d4fa1a1		            = #f0ebe3           // Axi3d4fa1a1
-	//  color colorAxi638b46c1		            = #fcd758           // Axi638b46c1
-	//  color colorAxid07bac9			        = #f9b4a8           // Axid07bac9
-	//  color colorAxie63a114			        = #2c4d5a           // Axie63a114
-	//  color colorAxi8bf0845			        = #a4d866           // Axi8bf0845
-	//  color colorAxi75c6da1			        = #282424           // Axi75c6da1
-	//  color colorAxi378280f			        = #45c2c7           // Axi378280f
-	//  color colorAxi4de92c5			        = #6caddf           // Axi4de92c5
-	//  color colorAxi413dab8			        = #00275d           // Axi413dab8
-	//  color colorAxib3fab89			        = #55165c           // Axib3fab89
-	//  color colorAxi548138f			        = #45c2c7           // Axi548138f
-	//  color colorAxi5ed9920			        = #ea1616           // Axi5ed9920
-	//  color colorAxi70f7335			        = #dd0606           // Axi70f7335
+	//  color colorAxiPrimary					= #fc404d			// AxiPrimary
+	//  color colorAxiSecondary					= #282424			// AxiSecondary
+	//  color colorAxiAccent					= #61ce70			// AxiAccent
+	//  color colorAxi7a46f22					= #d11c36			// Axi7a46f22
+	//  color colorAxi1519066c					= #fc404d			// Axi1519066c
+	//  color colorAxi3d4fa1a1					= #f0ebe3			// Axi3d4fa1a1
+	//  color colorAxi638b46c1					= #fcd758			// Axi638b46c1
+	//  color colorAxid07bac9					= #f9b4a8			// Axid07bac9
+	//  color colorAxie63a114					= #2c4d5a			// Axie63a114
+	//  color colorAxi8bf0845					= #a4d866			// Axi8bf0845
+	//  color colorAxi75c6da1					= #282424			// Axi75c6da1
+	//  color colorAxi378280f					= #45c2c7			// Axi378280f
+	//  color colorAxi4de92c5					= #6caddf			// Axi4de92c5
+	//  color colorAxi413dab8					= #00275d			// Axi413dab8
+	//  color colorAxib3fab89					= #55165c			// Axib3fab89
+	//  color colorAxi548138f					= #45c2c7			// Axi548138f
+	//  color colorAxi5ed9920					= #ea1616			// Axi5ed9920
+	//  color colorAxi70f7335					= #dd0606			// Axi70f7335
 
 //  ═══  GrayScale  ═══
-	//  color colorGrayScaleFocus				= #2d7aed           // GrayScaleFocus
-	//  color colorGrayScaleWhite				= #fff              // GrayScaleWhite
-	//  color colorGrayScaleBlack				= #000              // GrayScaleBlack
-	//  color colorGrayScalePrimaryBlackberry	= #2e234b           // GrayScalePrimaryBlackberry
-	//  color colorGrayScalePrimaryBlackberry40	= rgba(46, 35, 75, .4))             // GrayScalePrimaryBlackberry40
-	//  color colorGrayScalePrimaryBlackberry65	= rgba(46, 35, 75, .65))            // GrayScalePrimaryBlackberry65
-	//  color colorGrayScalePrimaryCoral		= #ffb198           // GrayScalePrimaryCoral
-	//  color colorGrayScaleSecondaryForestGreen = #244024          // GrayScaleSecondaryForestGreen
-	//  color colorGrayScaleSecondaryKeyLime	= #b5ce6f           // GrayScaleSecondaryKeyLime
-	//  color colorGrayScaleSecondaryLavender	= #c5bfe4           // GrayScaleSecondaryLavender
-	//  color colorGrayScaleSecondaryLavender40	= rgba(197, 191, 228, .4))          // GrayScaleSecondaryLavender40
-	//  color colorGrayScalesecondaryLavender60	= rgba(197, 191, 228, .6))          // GrayScalesecondaryLavender60
-	//  color colorGrayScalehoverWhite			= #c0bdc9           // GrayScalehoverWhite
-	//  color colorGrayScalehoverBlackberry		= #42326b           // GrayScalehoverBlackberry
-	//  color colorGrayScaledisabledBlackberry	= #4d4466           // GrayScaledisabledBlackberry
-	//  color colorGrayScaleactiveBlackberry	= #4d4466           // GrayScaleactiveBlackberry
-	//  color colorGrayScalehoverCcoral			= #ffcdbd           // GrayScalehoverCcoral
-	//  color colorGrayScaleactiveCcoral		= #ff9e80           // GrayScaleactiveCcoral
-	//  color colorGrayScalehoverGray			= #827b93           // GrayScalehoverGray
-	//  color colorGrayScalehoverGray2			= #6d6581           // GrayScalehoverGray2
-	//  color colorGrayScalegrayCharcoal		= #282525           // GrayScalegrayCharcoal
-	//  color colorGrayScalegrayCharcoal70		= rgba(40, 37, 37, .7))             // GrayScalegrayCharcoal70
-	//  color colorGrayScalegrayCharcoal80		= rgba(40, 37, 37, .8))             // GrayScalegrayCharcoal80
-	//  color colorGrayScalegrayLight			= #f5f5f5           // GrayScalegrayLight
-	//  color colorGrayScalegrayMedium			= #eee              // GrayScalegrayMedium
-	//  color colorGrayScalegray70				= #696666           // GrayScalegray70
-	//  color colorGrayScalegrayDark			= #c1c1c1           // GrayScalegrayDark
-	//  color colorGrayScalewebSeasalt			= #fafafc           // GrayScalewebSeasalt
-	//  color colorGrayScalewebDivider			= #e9e7f1           // GrayScalewebDivider
-	//  color colorGrayScalewebBackground		= #f3f2fa           // GrayScalewebBackground
-	//  color colorGrayScalewebSecondaryText	= #77708a           // GrayScalewebSecondaryText
-	//  color colorGrayScalewebStroke			= #d3ceeb           // GrayScalewebStroke
-	//  color colorGrayScalewebErrors			= #e00000           // GrayScalewebErrors
-	//  color colorGrayScalewebService			= #2d7aed           // GrayScalewebService
+	//  color colorGrayScaleFocus				= #2d7aed			// GrayScaleFocus
+	//  color colorGrayScaleWhite				= #fff				// GrayScaleWhite
+	//  color colorGrayScaleBlack				= #000				// GrayScaleBlack
+	//  color colorGrayScalePrimaryBlackberry	= #2e234b			// GrayScalePrimaryBlackberry
+	//  color colorGrayScalePrimaryBlackberry40	= rgba(46, 35, 75, .4))				// GrayScalePrimaryBlackberry40
+	//  color colorGrayScalePrimaryBlackberry65	= rgba(46, 35, 75, .65))			// GrayScalePrimaryBlackberry65
+	//  color colorGrayScalePrimaryCoral		= #ffb198			// GrayScalePrimaryCoral
+	//  color colorGrayScaleSecondaryForestGreen	= #244024          // GrayScaleSecondaryForestGreen
+	//  color colorGrayScaleSecondaryKeyLime	= #b5ce6f			// GrayScaleSecondaryKeyLime
+	//  color colorGrayScaleSecondaryLavender	= #c5bfe4			// GrayScaleSecondaryLavender
+	//  color colorGrayScaleSecondaryLavender40	= rgba(197, 191, 228, .4))			// GrayScaleSecondaryLavender40
+	//  color colorGrayScalesecondaryLavender60	= rgba(197, 191, 228, .6))			// GrayScalesecondaryLavender60
+	//  color colorGrayScalehoverWhite			= #c0bdc9			// GrayScalehoverWhite
+	//  color colorGrayScalehoverBlackberry		= #42326b			// GrayScalehoverBlackberry
+	//  color colorGrayScaledisabledBlackberry	= #4d4466			// GrayScaledisabledBlackberry
+	//  color colorGrayScaleactiveBlackberry	= #4d4466			// GrayScaleactiveBlackberry
+	//  color colorGrayScalehoverCcoral			= #ffcdbd			// GrayScalehoverCcoral
+	//  color colorGrayScaleactiveCcoral		= #ff9e80			// GrayScaleactiveCcoral
+	//  color colorGrayScalehoverGray			= #827b93			// GrayScalehoverGray
+	//  color colorGrayScalehoverGray2			= #6d6581			// GrayScalehoverGray2
+	//  color colorGrayScalegrayCharcoal		= #282525			// GrayScalegrayCharcoal
+	//  color colorGrayScalegrayCharcoal70		= rgba(40, 37, 37, .7))				// GrayScalegrayCharcoal70
+	//  color colorGrayScalegrayCharcoal80		= rgba(40, 37, 37, .8))				// GrayScalegrayCharcoal80
+	//  color colorGrayScalegrayLight			= #f5f5f5			// GrayScalegrayLight
+	//  color colorGrayScalegrayMedium			= #eee				// GrayScalegrayMedium
+	//  color colorGrayScalegray70				= #696666			// GrayScalegray70
+	//  color colorGrayScalegrayDark			= #c1c1c1			// GrayScalegrayDark
+	//  color colorGrayScalewebSeasalt			= #fafafc			// GrayScalewebSeasalt
+	//  color colorGrayScalewebDivider			= #e9e7f1			// GrayScalewebDivider
+	//  color colorGrayScalewebBackground		= #f3f2fa			// GrayScalewebBackground
+	//  color colorGrayScalewebSecondaryText	= #77708a			// GrayScalewebSecondaryText
+	//  color colorGrayScalewebStroke			= #d3ceeb			// GrayScalewebStroke
+	//  color colorGrayScalewebErrors			= #e00000			// GrayScalewebErrors
+	//  color colorGrayScalewebService			= #2d7aed			// GrayScalewebService
 
 //  ═══  Interactive  ═══
-	//  color colorInteractivePrimary3		    = hsla(355, 85%, 46%, 0.03)   // InteractivePrimary3
-	//  color colorInteractivePrimary5		    = hsla(355, 85%, 46%, 0.05)   // InteractivePrimary5
-	//  color colorInteractivePrimary10		    = hsla(355, 85%, 46%, 0.10)   // InteractivePrimary10
-	//  color colorInteractivePrimary20		    = hsla(355, 85%, 46%, 0.20)   // InteractivePrimary20
-	//  color colorInteractivePrimary30		    = hsla(355, 85%, 46%, 0.30)   // InteractivePrimary30
-	//  color colorInteractivePrimary40		    = hsla(355, 85%, 46%, 0.40)   // InteractivePrimary40
-	//  color colorInteractivePrimary50		    = hsla(355, 85%, 46%, 0.50)   // InteractivePrimary50
-	//  color colorInteractivePrimary60		    = hsla(355, 85%, 46%, 0.60)   // InteractivePrimary60
-	//  color colorInteractivePrimary70		    = hsla(355, 85%, 46%, 0.70)   // InteractivePrimary70
-	//  color colorInteractivePrimary80		    = hsla(355, 85%, 46%, 0.80)   // InteractivePrimary80
-	//  color colorInteractivePrimary90		    = hsla(355, 85%, 46%, 0.90)   // InteractivePrimary90
-	//  color colorInteractivePrimary			= hsla(355, 85%, 46%, 1.0)    // InteractivePrimary
-	//  color colorInteractivePrimaryDark10	    = hsla(355, 85%, 41%, 1.0)    // InteractivePrimaryDark10
-	//  color colorInteractivePrimaryDark20	    = hsla(355, 85%, 36%, 1.0)    // InteractivePrimaryDark20
-	//  color colorInteractivePrimaryDark30	    = hsla(355, 85%, 31%, 1.0)    // InteractivePrimaryDark30
-	//  color colorInteractivePrimaryDark40	    = hsla(355, 85%, 26%, 1.0)    // InteractivePrimaryDark40
-	//  color colorInteractivePrimaryDark50	    = hsla(355, 85%, 21%, 1.0)    // InteractivePrimaryDark50
-	//  color colorInteractiveSecondary3		= hsla(0, 0%, 13%, 0.03)      // InteractiveSecondary3
-	//  color colorInteractiveSecondary5		= hsla(0, 0%, 13%, 0.05)      // InteractiveSecondary5
-	//  color colorInteractiveSecondary10		= hsla(0, 0%, 13%, 0.10)      // InteractiveSecondary10
-	//  color colorInteractiveSecondary20		= hsla(0, 0%, 13%, 0.20)      // InteractiveSecondary20
-	//  color colorInteractiveSecondary30		= hsla(0, 0%, 13%, 0.30)      // InteractiveSecondary30
-	//  color colorInteractiveSecondary40		= hsla(0, 0%, 13%, 0.40)      // InteractiveSecondary40
-	//  color colorInteractiveSecondary50		= hsla(0, 0%, 13%, 0.50)      // InteractiveSecondary50
-	//  color colorInteractiveSecondary60		= hsla(0, 0%, 13%, 0.60)      // InteractiveSecondary60
-	//  color colorInteractiveSecondary70		= hsla(0, 0%, 13%, 0.70)      // InteractiveSecondary70
-	//  color colorInteractiveSecondary80		= hsla(0, 0%, 13%, 0.80)      // InteractiveSecondary80
-	//  color colorInteractiveSecondary90		= hsla(0, 0%, 13%, 0.90)      // InteractiveSecondary90
-	//  color colorInteractiveSecondary		    = hsla(0, 0%, 13%, 1.0)       // InteractiveSecondary
-	//  color colorInteractiveSecondaryDark10	= hsla(0, 0%, 10%, 1.0)       // InteractiveSecondaryDark10
-	//  color colorInteractiveSecondaryDark20	= hsla(0, 0%, 7%, 1.0)        // InteractiveSecondaryDark20
-	//  color colorInteractiveSecondaryDark30	= hsla(0, 0%, 4%, 1.0)        // InteractiveSecondaryDark30
-	//  color colorInteractiveSecondaryDark40	= hsla(0, 0%, 1%, 1.0)        // InteractiveSecondaryDark40
-	//  color colorInteractiveSecondaryDark50	= hsla(0, 0%, 0%, 1.0)        // InteractiveSecondaryDark50
-	//  color colorInteractiveTertiary3		    = hsla(202, 76%, 19%, 0.03)   // InteractiveTertiary3
-	//  color colorInteractiveTertiary5		    = hsla(202, 76%, 19%, 0.05)   // InteractiveTertiary5
-	//  color colorInteractiveTertiary10		= hsla(202, 76%, 19%, 0.10)   // InteractiveTertiary10
-	//  color colorInteractiveTertiary20		= hsla(202, 76%, 19%, 0.20)   // InteractiveTertiary20
-	//  color colorInteractiveTertiary30		= hsla(202, 76%, 19%, 0.30)   // InteractiveTertiary30
-	//  color colorInteractiveTertiary40		= hsla(202, 76%, 19%, 0.40)   // InteractiveTertiary40
-	//  color colorInteractiveTertiary50		= hsla(202, 76%, 19%, 0.50)   // InteractiveTertiary50
-	//  color colorInteractiveTertiary60		= hsla(202, 76%, 19%, 0.60)   // InteractiveTertiary60
-	//  color colorInteractiveTertiary70		= hsla(202, 76%, 19%, 0.70)   // InteractiveTertiary70
-	//  color colorInteractiveTertiary80		= hsla(202, 76%, 19%, 0.80)   // InteractiveTertiary80
-	//  color colorInteractiveTertiary90		= hsla(202, 76%, 19%, 0.90)   // InteractiveTertiary90
-	//  color colorInteractiveTertiary		    = hsla(202, 76%, 19%, 1.0)    // InteractiveTertiary
-	//  color colorInteractiveTertiaryDark10 	= hsla(202, 76%, 14%, 1.0)    // InteractiveTertiaryDark10
-	//  color colorInteractiveTertiaryDark20 	= hsla(202, 76%, 9%, 1.0)     // InteractiveTertiaryDark20
-	//  color colorInteractiveTertiaryDark30 	= hsla(202, 76%, 4%, 1.0)     // InteractiveTertiaryDark30
-	//  color colorInteractiveTertiaryDark40 	= hsla(202, 76%, 0%, 1.0)     // InteractiveTertiaryDark40
+	//  color colorInteractivePrimary3				= hsla(355, 85%, 46%, 0.03)			// InteractivePrimary3
+	//  color colorInteractivePrimary5				= hsla(355, 85%, 46%, 0.05)			// InteractivePrimary5
+	//  color colorInteractivePrimary10				= hsla(355, 85%, 46%, 0.10)			// InteractivePrimary10
+	//  color colorInteractivePrimary20				= hsla(355, 85%, 46%, 0.20)			// InteractivePrimary20
+	//  color colorInteractivePrimary30				= hsla(355, 85%, 46%, 0.30)			// InteractivePrimary30
+	//  color colorInteractivePrimary40				= hsla(355, 85%, 46%, 0.40)			// InteractivePrimary40
+	//  color colorInteractivePrimary50				= hsla(355, 85%, 46%, 0.50)			// InteractivePrimary50
+	//  color colorInteractivePrimary60				= hsla(355, 85%, 46%, 0.60)			// InteractivePrimary60
+	//  color colorInteractivePrimary70				= hsla(355, 85%, 46%, 0.70)			// InteractivePrimary70
+	//  color colorInteractivePrimary80				= hsla(355, 85%, 46%, 0.80)			// InteractivePrimary80
+	//  color colorInteractivePrimary90				= hsla(355, 85%, 46%, 0.90)			// InteractivePrimary90
+	//  color colorInteractivePrimary				= hsla(355, 85%, 46%, 1.0)			// InteractivePrimary
+	//  color colorInteractivePrimaryDark10			= hsla(355, 85%, 41%, 1.0)			// InteractivePrimaryDark10
+	//  color colorInteractivePrimaryDark20			= hsla(355, 85%, 36%, 1.0)			// InteractivePrimaryDark20
+	//  color colorInteractivePrimaryDark30			= hsla(355, 85%, 31%, 1.0)			// InteractivePrimaryDark30
+	//  color colorInteractivePrimaryDark40			= hsla(355, 85%, 26%, 1.0)			// InteractivePrimaryDark40
+	//  color colorInteractivePrimaryDark50			= hsla(355, 85%, 21%, 1.0)			// InteractivePrimaryDark50
+	//  color colorInteractiveSecondary3			= hsla(0, 0%, 13%, 0.03)			// InteractiveSecondary3
+	//  color colorInteractiveSecondary5			= hsla(0, 0%, 13%, 0.05)			// InteractiveSecondary5
+	//  color colorInteractiveSecondary10			= hsla(0, 0%, 13%, 0.10)			// InteractiveSecondary10
+	//  color colorInteractiveSecondary20			= hsla(0, 0%, 13%, 0.20)			// InteractiveSecondary20
+	//  color colorInteractiveSecondary30			= hsla(0, 0%, 13%, 0.30)			// InteractiveSecondary30
+	//  color colorInteractiveSecondary40			= hsla(0, 0%, 13%, 0.40)			// InteractiveSecondary40
+	//  color colorInteractiveSecondary50			= hsla(0, 0%, 13%, 0.50)			// InteractiveSecondary50
+	//  color colorInteractiveSecondary60			= hsla(0, 0%, 13%, 0.60)			// InteractiveSecondary60
+	//  color colorInteractiveSecondary70			= hsla(0, 0%, 13%, 0.70)			// InteractiveSecondary70
+	//  color colorInteractiveSecondary80			= hsla(0, 0%, 13%, 0.80)			// InteractiveSecondary80
+	//  color colorInteractiveSecondary90			= hsla(0, 0%, 13%, 0.90)			// InteractiveSecondary90
+	//  color colorInteractiveSecondary				= hsla(0, 0%, 13%, 1.0)				// InteractiveSecondary
+	//  color colorInteractiveSecondaryDark10		= hsla(0, 0%, 10%, 1.0)				// InteractiveSecondaryDark10
+	//  color colorInteractiveSecondaryDark20		= hsla(0, 0%, 7%, 1.0)				// InteractiveSecondaryDark20
+	//  color colorInteractiveSecondaryDark30		= hsla(0, 0%, 4%, 1.0)				// InteractiveSecondaryDark30
+	//  color colorInteractiveSecondaryDark40		= hsla(0, 0%, 1%, 1.0)				// InteractiveSecondaryDark40
+	//  color colorInteractiveSecondaryDark50		= hsla(0, 0%, 0%, 1.0)				// InteractiveSecondaryDark50
+	//  color colorInteractiveTertiary3				= hsla(202, 76%, 19%, 0.03)			// InteractiveTertiary3
+	//  color colorInteractiveTertiary5				= hsla(202, 76%, 19%, 0.05)			// InteractiveTertiary5
+	//  color colorInteractiveTertiary10			= hsla(202, 76%, 19%, 0.10)			// InteractiveTertiary10
+	//  color colorInteractiveTertiary20			= hsla(202, 76%, 19%, 0.20)			// InteractiveTertiary20
+	//  color colorInteractiveTertiary30			= hsla(202, 76%, 19%, 0.30)			// InteractiveTertiary30
+	//  color colorInteractiveTertiary40			= hsla(202, 76%, 19%, 0.40)			// InteractiveTertiary40
+	//  color colorInteractiveTertiary50			= hsla(202, 76%, 19%, 0.50)			// InteractiveTertiary50
+	//  color colorInteractiveTertiary60			= hsla(202, 76%, 19%, 0.60)			// InteractiveTertiary60
+	//  color colorInteractiveTertiary70			= hsla(202, 76%, 19%, 0.70)			// InteractiveTertiary70
+	//  color colorInteractiveTertiary80			= hsla(202, 76%, 19%, 0.80)			// InteractiveTertiary80
+	//  color colorInteractiveTertiary90			= hsla(202, 76%, 19%, 0.90)			// InteractiveTertiary90
+	//  color colorInteractiveTertiary				= hsla(202, 76%, 19%, 1.0)			// InteractiveTertiary
+	//  color colorInteractiveTertiaryDark10		= hsla(202, 76%, 14%, 1.0)			// InteractiveTertiaryDark10
+	//  color colorInteractiveTertiaryDark20		= hsla(202, 76%, 9%, 1.0)			// InteractiveTertiaryDark20
+	//  color colorInteractiveTertiaryDark30		= hsla(202, 76%, 4%, 1.0)			// InteractiveTertiaryDark30
+	//  color colorInteractiveTertiaryDark40		= hsla(202, 76%, 0%, 1.0)			// InteractiveTertiaryDark40
 
 //  ═══  Visa  ═══
-	//  color colorVisaBrandPrimary			    = #1434CB           // VisaBrandPrimary
-	//  color colorVisaBrandPrimaryLight		= #3B57DE           // VisaBrandPrimaryLight
-	//  color colorVisaBrandPrimaryDark		    = #021E4C           // VisaBrandPrimaryDark
-	//  color colorVisaBrandSecondary		    = #FCC015           // VisaBrandSecondary
-	//  color colorVisaBrandSecondaryLight	    = #FFD700           // VisaBrandSecondaryLight
-	//  color colorVisaBrandSecondaryDark	    = #F7B600           // VisaBrandSecondaryDark
-	//  color colorVisaBrandTertiary7		    = #2C2C2C           // VisaBrandTertiary7
-	//  color colorVisaBrandTertiary6		    = #5C5C5C           // VisaBrandTertiary6
-	//  color colorVisaBrandTertiary5		    = #979797           // VisaBrandTertiary5
-	//  color colorVisaBrandTertiary4		    = #B9B9B9           // VisaBrandTertiary4
-	//  color colorVisaBrandTertiary3		    = #DEDEDE           // VisaBrandTertiary3
-	//  color colorVisaBrandTertiary2		    = #EEEEEE           // VisaBrandTertiary2
-	//  color colorVisaBrandTertiary1		    = #F7F7F7           // VisaBrandTertiary1
+	//  color colorVisaBrandPrimary				= #1434CB			// VisaBrandPrimary
+	//  color colorVisaBrandPrimaryLight		= #3B57DE			// VisaBrandPrimaryLight
+	//  color colorVisaBrandPrimaryDark			= #021E4C			// VisaBrandPrimaryDark
+	//  color colorVisaBrandSecondary			= #FCC015			// VisaBrandSecondary
+	//  color colorVisaBrandSecondaryLight		= #FFD700			// VisaBrandSecondaryLight
+	//  color colorVisaBrandSecondaryDark		= #F7B600			// VisaBrandSecondaryDark
+	//  color colorVisaBrandTertiary7			= #2C2C2C			// VisaBrandTertiary7
+	//  color colorVisaBrandTertiary6			= #5C5C5C			// VisaBrandTertiary6
+	//  color colorVisaBrandTertiary5			= #979797			// VisaBrandTertiary5
+	//  color colorVisaBrandTertiary4			= #B9B9B9			// VisaBrandTertiary4
+	//  color colorVisaBrandTertiary3			= #DEDEDE			// VisaBrandTertiary3
+	//  color colorVisaBrandTertiary2			= #EEEEEE			// VisaBrandTertiary2
+	//  color colorVisaBrandTertiary1			= #F7F7F7			// VisaBrandTertiary1
 
 //  ═══  Latam  ═══
-	//  colorLatamRedBackground			        = rgb(232, 17, 75)  //  Latam Red Background
+	//  colorLatamRedBackground					= rgb(232, 17, 75)			//  Latam Red Background
 
 //  ═══  Arbe Robotics  ═══
-	//  color colorArbePrimary			        = #0035FF           // ArbePrimary
-	//  color colorArbePrimaryLight		        = #0640FF           // ArbePrimaryLight
-	//  color colorArbeSecondary			    = #04ebff           // ArbeSecondary
+	//  color colorArbePrimary					= #0035FF			// ArbePrimary
+	//  color colorArbePrimaryLight				= #0640FF			// ArbePrimaryLight
+	//  color colorArbeSecondary				= #04ebff			// ArbeSecondary
 
 //  ═══  AutoX  ═══
-	//  color colorAutoXPrimary			        = #2253F0           // AutoXPrimary
-	//  color colorAutoXPrimaryLight		    = #0050F9           // AutoXPrimaryLight
-	//  color colorAutoXSecondary		        = #75ebc0           // AutoXSecondary
+	//  color colorAutoXPrimary					= #2253F0			// AutoXPrimary
+	//  color colorAutoXPrimaryLight			= #0050F9			// AutoXPrimaryLight
+	//  color colorAutoXSecondary				= #75ebc0			// AutoXSecondary
 
 //  ═══  EEG  ═══
-    //  color colorEegSkyBlue30			    	= #01EBF9           // EEGSkyBlue30
-    //  color colorEegSkyBlue40			    	= #00E7FD           // EEGSkyBlue40
-    //  color colorEegFucsia40			    	= #FF00B1           // EEGFucsia40
-    //  color colorEegFucsia50			    	= #FE0CB6           // EEGFucsia50
+	//  color colorEegSkyBlue30					= #01EBF9			// EEGSkyBlue30
+	//  color colorEegSkyBlue40					= #00E7FD			// EEGSkyBlue40
+	//  color colorEegFucsia40					= #FF00B1			// EEGFucsia40
+	//  color colorEegFucsia50					= #FE0CB6			// EEGFucsia50
 
 //  ═══  Bright Line  ═══
-    //  color colorBrightYellow10               = #FBFD73           // BrightLineBackground Yellow Light
-    //  color colorBrightYellow20               = #FFFD52           // BrightLineBackground Yellow Light
-    //  color colorBrightYellow30               = #FDF43C           // BrightLineBackground Yellow High
-    //  color colorBrightYellow40               = #FEF301           // BrightLineBackground Yellow Nit
-    //  color colorBrightYellow50               = #FFDB00           // BrightLineBackground Yellow Base
+	//  color colorBrightYellow10				= #FBFD73			// BrightLineBackground Yellow Light
+	//  color colorBrightYellow20				= #FFFD52			// BrightLineBackground Yellow Light
+	//  color colorBrightYellow30				= #FDF43C			// BrightLineBackground Yellow High
+	//  color colorBrightYellow40				= #FEF301			// BrightLineBackground Yellow Nit
+	//  color colorBrightYellow50				= #FFDB00			// BrightLineBackground Yellow Base
 
 //  ═══  TradingView  ═══
-    //  color colorTvLightMenta50               = #00ffd5           // TradingViewMenta
-    //  color colorTvLightGreen50               = #33ffac           // TradingViewGreenNit
-    //  color colorTvBlue50                     = #0034c5           // TradingViewBlue
-    //  color colorTvLightYellow50              = #eedd45           // TradingViewYellow
-    //  color colorTvNitRed40                   = #e91e63           // TradingViewRedLight
-    //  color colorTvLightBlueSky50             = #12cef8           // TradingViewBlueSky
+	//  color colorTvLightMenta50				= #00ffd5			// TradingViewMenta
+	//  color colorTvLightGreen50				= #33ffac			// TradingViewGreenNit
+	//  color colorTvBlue50						= #0034c5			// TradingViewBlue
+	//  color colorTvLightYellow50				= #eedd45			// TradingViewYellow
+	//  color colorTvNitRed40					= #e91e63			// TradingViewRedLight
+	//  color colorTvLightBlueSky50				= #12cef8			// TradingViewBlueSky
 
 //  ═══  TFlab  ═══
-    //  color colorTFlabAsia                    = #8bbcfc           // Lite TFlabAsia                        
-    //  color colorTFlabSydney                  = #F0B884           // Lite TFlabSydney                      
-    //  color colorTFlabTokyo                   = #0CC1C0           // Lite TFlabTokyo                       
-    //  color colorTFlabShanghai                = #ea1616           // Lite TFlabShanghai                    
-    //  color colorTFlabEuro                    = #BBE8B5           // Lite TFlabEuro                        
-    //  color colorTFlabLondon                  = #ACBBE8           // Lite TFlabLondon                      
-    //  color colorTFlabNewyork                 = #C5ACE8           // Lite TFlabNewyork                     
-    //  color colorTFlabNYSE                    = #87c2d4           // Lite TFlabNYSE                        
+	//  color colorTFlabAsia					= #8bbcfc			// Lite TFlabAsia                        
+	//  color colorTFlabSydney					= #F0B884			// Lite TFlabSydney                      
+	//  color colorTFlabTokyo					= #0CC1C0			// Lite TFlabTokyo                       
+	//  color colorTFlabShanghai				= #ea1616			// Lite TFlabShanghai                    
+	//  color colorTFlabEuro					= #BBE8B5			// Lite TFlabEuro                        
+	//  color colorTFlabLondon					= #ACBBE8			// Lite TFlabLondon                      
+	//  color colorTFlabNewyork					= #C5ACE8			// Lite TFlabNewyork                     
+	//  color colorTFlabNYSE					= #87c2d4			// Lite TFlabNYSE                        
 
 //  ═══  Ultr  ═══
-    //  color colorUltrBlueSky10                = #59F2E9           // UltrBlueSky10
-    //  color colorUltrBlueSky20                = #39F0EA           // UltrBlueSky20
-    //  color colorUltrMenta10                  = #E0F9EF           // UltrMenta10
-    //  color colorUtlrMenta20                  = #80F3EC           // UtlrMenta20
-    //  color colorUltrMenta30                  = #7FFFD4           // UltrMenta30
-    //  color colorUltrMenta40                  = #73FFCA           // UltrMenta40
-    //  color colorUltrRose20					= #ffa3e3           // UltrRose
-    //  color colorUltrFucsia30					= #ff6fd3           // UltrFucsia
-    //  color colorUltrLyla					    = #7E57C2           // UltrLyla
-    //  color colorUltrLightGray			    = #787B86			// UltrLightGray
-    //  color colorUltrRedNit				    = #de0011           // UltrRedNit
+	//  color colorUltrBlueSky10				= #59F2E9			// UltrBlueSky10
+	//  color colorUltrBlueSky20				= #39F0EA			// UltrBlueSky20
+	//  color colorUltrMenta10					= #E0F9EF			// UltrMenta10
+	//  color colorUtlrMenta20					= #80F3EC			// UtlrMenta20
+	//  color colorUltrMenta30					= #7FFFD4			// UltrMenta30
+	//  color colorUltrMenta40					= #73FFCA			// UltrMenta40
+	//  color colorUltrRose20					= #ffa3e3			// UltrRose
+	//  color colorUltrFucsia30					= #ff6fd3			// UltrFucsia
+	//  color colorUltrLyla						= #7E57C2			// UltrLyla
+	//  color colorUltrLightGray				= #787B86			// UltrLightGray
+	//  color colorUltrRedNit					= #de0011			// UltrRedNit
 
 ///////////////////////////////// 
 
 //  ═══  Basic  ═══
-color colorAxi413dab8                     = #00275d           // Axi413dab8
-color colorVisaBrandPrimary               = #1434CB           // VisaBrandPrimary
-color colorTvBlue50                       = #0034c5           // TradingViewBlue
-color colorArbePrimary                    = #0035FF           // ArbePrimary
-color colorArbePrimaryLight               = #0640FF           // ArbePrimaryLight
-color colorArbeSecondary                  = #04ebff           // ArbeSecondary
-color colorUltrBlueSky10                  = #59F2E9           // UltrBlueSky10
-color colorUltrBlueSky20                  = #39F0EA           // UltrBlueSky20
-color colorAutoXSecondary                 = #75ebc0           // AutoXSecondary
-color colorUltrMenta10                    = #E0F9EF           // UltrMenta10
-color colorUtlrMenta20                    = #80F3EC           // UltrMenta20
-color colorUltrMenta30                    = #7FFFD4           // UltrMenta30
-color colorUltrMenta40                    = #73FFCA           // UltrMenta40
-color colorTvLightMenta50                 = #00ffd5           // TradingViewMenta
-color colorTvLightGreen50                 = #33ffac           // TradingViewGreenNit
-color colorAxi4de92c5                     = #6caddf           // Axi4de92c5
-color colorTvLightBlueSky50               = #12cef8           // TradingViewBlueSky
-color colorAxi548138f                     = #45c2c7           // Axi548138f
-color colorEegSkyBlue30                   = #01EBF9           // EEGSkyBlue30
-color colorEegSkyBlue40                   = #00E7FD           // EEGSkyBlue40
-color colorUltrRose20                     = #ffa3e3           // UltrRose
-color colorUltrFucsia30                   = #ff6fd3           // UltrFucsia
-color colorEegFucsia40                    = #FF00B1           // EEGFucsia40
-color colorEegFucsia50                    = #FE0CB6           // EEGFucsia50
-color colorTvNitRed40                     = #e91e63           // TradingViewRedLight
-color colorUltrRedNit                     = #de0011           // UltrRedNit
-color colorAxi5ed9920                     = #ea1616           // Axi5ed9920
-color colorAxi70f7335                     = #dd0606           // Axi70f7335
-color colorAxiPrimary                     = #fc404d           // AxiPrimary
-color colorAxi7a46f22                     = #d11c36           // Axi7a46f22
-color colorBrightYellow10                 = #FBFD73           // BrightLineBackground Yellow Light
-color colorBrightYellow20                 = #FFFD52           // BrightLineBackground Yellow Light
-color colorBrightYellow30                 = #FDF43C           // BrightLineBackground Yellow High
-color colorBrightYellow40                 = #FEF301           // BrightLineBackground Yellow Nit
-color colorBrightYellow50                 = #FFDB00           // BrightLineBackground Yellow Base
-color colorTvLightYellow50                = #eedd45           // TradingViewYellow
-color colorAmeritradeGrayNickel           = #F1F1F1           // AmeritradeGrayNickel
-color colorAmeritradeGrayAluminum         = #E6E7E9           // AmeritradeGrayAluminum
-color colorAxi3d4fa1a1                    = #f0ebe3           // Axi3d4fa1a1
-color colorGrayScalewebSeasalt            = #fafafc           // GrayScalewebSeasalt
-color colorGrayScalewebDivider            = #e9e7f1           // GrayScalewebDivider
-color colorGrayScalewebBackground         = #f3f2fa           // GrayScalewebBackground
-color colorVisaBrandTertiary3             = #DEDEDE           // VisaBrandTertiary3
-color colorGrayScaleSecondaryLavender     = #c5bfe4           // GrayScaleSecondaryLavender
-color colorUltrLyla                       = #7E57C2           // UltrLyla
-color colorAxib3fab89                     = #55165c           // Axib3fab89
-color colorUltrLightGray                  = #787B86     			// UltrLightGray
-color colorAxie63a114                     = #2c4d5a           // Axie63a114
-color colorGrayScaleSecondaryForestGreen  = #244024           // GrayScaleSecondaryForestGreen
-color colorGrayScalePrimaryBlackberry     = #2e234b           // GrayScalePrimaryBlackberry
-color colorAxiSecondary                   = #282424           // AxiSecondary
+color colorAxi413dab8							= #00275d					// Axi413dab8
+color colorVisaBrandPrimary						= #1434CB					// VisaBrandPrimary
+color colorTvBlue50								= #0034c5					// TradingViewBlue
+color colorArbePrimary							= #0035FF					// ArbePrimary
+color colorArbePrimaryLight						= #0640FF					// ArbePrimaryLight
+color colorArbeSecondary						= #04ebff					// ArbeSecondary
+color colorUltrBlueSky10						= #59F2E9					// UltrBlueSky10
+color colorUltrBlueSky20						= #39F0EA					// UltrBlueSky20
+color colorAutoXSecondary						= #75ebc0					// AutoXSecondary
+color colorUltrMenta10							= #E0F9EF					// UltrMenta10
+color colorUtlrMenta20							= #80F3EC					// UltrMenta20
+color colorUltrMenta30							= #7FFFD4					// UltrMenta30
+color colorUltrMenta40							= #73FFCA					// UltrMenta40
+color colorTvLightMenta50						= #00ffd5					// TradingViewMenta
+color colorTvLightGreen50						= #33ffac					// TradingViewGreenNit
+color colorAxi4de92c5							= #6caddf					// Axi4de92c5
+color colorTvLightBlueSky50						= #12cef8					// TradingViewBlueSky
+color colorAxi548138f							= #45c2c7					// Axi548138f
+color colorEegSkyBlue30							= #01EBF9					// EEGSkyBlue30
+color colorEegSkyBlue40							= #00E7FD					// EEGSkyBlue40
+color colorUltrRose20							= #ffa3e3					// UltrRose
+color colorUltrFucsia30							= #ff6fd3					// UltrFucsia
+color colorEegFucsia40							= #FF00B1					// EEGFucsia40
+color colorEegFucsia50							= #FE0CB6					// EEGFucsia50
+color colorTvNitRed40							= #e91e63					// TradingViewRedLight
+color colorUltrRedNit							= #de0011					// UltrRedNit
+color colorAxi5ed9920							= #ea1616					// Axi5ed9920
+color colorAxi70f7335							= #dd0606					// Axi70f7335
+color colorAxiPrimary							= #fc404d					// AxiPrimary
+color colorAxi7a46f22							= #d11c36					// Axi7a46f22
+color colorBrightYellow10						= #FBFD73					// BrightLineBackground Yellow Light
+color colorBrightYellow20						= #FFFD52					// BrightLineBackground Yellow Light
+color colorBrightYellow30						= #FDF43C					// BrightLineBackground Yellow High
+color colorBrightYellow40						= #FEF301					// BrightLineBackground Yellow Nit
+color colorBrightYellow50						= #FFDB00					// BrightLineBackground Yellow Base
+color colorTvLightYellow50						= #eedd45					// TradingViewYellow
+color colorAmeritradeGrayNickel					= #F1F1F1					// AmeritradeGrayNickel
+color colorAmeritradeGrayAluminum				= #E6E7E9					// AmeritradeGrayAluminum
+color colorAxi3d4fa1a1							= #f0ebe3					// Axi3d4fa1a1
+color colorGrayScalewebSeasalt					= #fafafc					// GrayScalewebSeasalt
+color colorGrayScalewebDivider					= #e9e7f1					// GrayScalewebDivider
+color colorGrayScalewebBackground				= #f3f2fa					// GrayScalewebBackground
+color colorVisaBrandTertiary3					= #DEDEDE					// VisaBrandTertiary3
+color colorGrayScaleSecondaryLavender			= #c5bfe4					// GrayScaleSecondaryLavender
+color colorUltrLyla								= #7E57C2					// UltrLyla
+color colorAxib3fab89							= #55165c					// Axib3fab89
+color colorUltrLightGray						= #787B86					// UltrLightGray
+color colorAxie63a114							= #2c4d5a					// Axie63a114
+color colorGrayScaleSecondaryForestGreen		= #244024					// GrayScaleSecondaryForestGreen
+color colorGrayScalePrimaryBlackberry			= #2e234b					// GrayScalePrimaryBlackberry
+color colorAxiSecondary							= #282424					// AxiSecondary
 
 //  ══════════════
-//  ═══  Lite  ═══
+//  ═══  FM  ═══
 //  ═══  Variables  ═══
 
-
 //Session Asia
-show_sesasia = input(true, 'Asia Session', group = 'Asia Session', tooltip = 'Sydney + Tokyo')
-sesasia_ses = input.session('2300-0600', '', inline = 'sesasia', group = 'Asia Session')
-sesasia_color = input.color(#8bbcfc, 'Color', inline = 'sesasia', group = 'Asia Session')
-sesasia_text = 'Asia'
+show_sesasia        = input(true, 'Asia Session', group = 'Asia Session', tooltip = 'Sydney + Tokyo')
+sesasia_ses         = input.session('2300-0600', '', inline = 'sesasia', group = 'Asia Session')
+sesasia_color       = input.color(#8bbcfc, 'Color', inline = 'sesasia', group = 'Asia Session')
+sesasia_text        = 'Asia'
 
 //Session Sydney
-show_sesSydney = input(true, 'Sydney Session', group = 'Sydney Session') 
-sesSydney_ses = input.session('2300-0500', '', inline = 'sesSydney', group = 'Sydney Session')
-sesSydney_color = input.color(#F0B884, 'Color', inline = 'sesSydney', group = 'Sydney Session')
-sesSydney_text = 'Sydney'
+show_sesSydney      = input(true, 'Sydney Session', group = 'Sydney Session') 
+sesSydney_ses       = input.session('2300-0500', '', inline = 'sesSydney', group = 'Sydney Session')
+sesSydney_color     = input.color(#F0B884, 'Color', inline = 'sesSydney', group = 'Sydney Session')
+sesSydney_text      = 'Sydney'
 
 //Session Tokyo
-show_sesTokyo = input(true, 'Tokyo Session', group = 'Tokyo Session') 
-sesTokyo_ses = input.session('0000-0600', '', inline = 'sesTokyo', group = 'Tokyo Session')
-sesTokyo_color = input.color(#0CC1C0, 'Color', inline = 'sesTokyo', group = 'Tokyo Session')
-sesTokyo_text = 'Tokyo'
+show_sesTokyo       = input(true, 'Tokyo Session', group = 'Tokyo Session') 
+sesTokyo_ses        = input.session('0000-0600', '', inline = 'sesTokyo', group = 'Tokyo Session')
+sesTokyo_color      = input.color(#0CC1C0, 'Color', inline = 'sesTokyo', group = 'Tokyo Session')
+sesTokyo_text       = 'Tokyo'
 
 //Session Shanghai
-show_sesShanghai = input(false, 'Shanghai Session', group = 'Shanghai Session') 
-sesShanghai_ses = input.session('0130-0657', '', inline = 'sesShanghai', group = 'Shanghai Session')
+show_sesShanghai    = input(false, 'Shanghai Session', group = 'Shanghai Session') 
+sesShanghai_ses     = input.session('0130-0657', '', inline = 'sesShanghai', group = 'Shanghai Session')
 sesShanghai_color = input.color(color.rgb(255, 16, 16, 50), 'Color', inline = 'sesShanghai', group = 'Shanghai Session')
 sesShanghai_text = 'Shanghai'
 
@@ -369,66 +368,66 @@ On_sesSydney = math.sign(nz(time(timeframe.period, sesSydney_ses, 'UTC+0')))
 
 //High & Low Session Detector 
 LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
-    var int Bar = 0
-    var float High = 0.0 
-    var float Low = 0.0
-    var box BoX = na
-    var label LabeL = na 
-    if  (On_Session[1] == 0 and On_Session == 1)
-        Bar := bar_index
-        High := high
-        Low := low
-    else if (On_Session[1] == 1 and On_Session == 1)
-        High := math.max(high , High) 
-        Low :=   math.min(low , Low)
-    else if On_Session == 0
-        High := 0.0 
-        Low := 0.0
-        Bar := 0
+	var int Bar = 0
+	var float High = 0.0 
+	var float Low = 0.0
+	var box BoX = na
+	var label LabeL = na 
+	if  (On_Session[1] == 0 and On_Session == 1)
+		Bar := bar_index
+		High := high
+		Low := low
+	else if (On_Session[1] == 1 and On_Session == 1)
+		High := math.max(high , High) 
+		Low :=   math.min(low , Low)
+	else if On_Session == 0
+		High := 0.0 
+		Low := 0.0
+		Bar := 0
 
-    if On_Session > On_Session[1]
-        BoX := box.new(bar_index,High, bar_index , Low, bgcolor = color.new(Color_Session, 85),
-         border_color = color.rgb(34, 101, 155),
-         border_style = line.style_dotted)
-        
-        LabeL := label.new(Bar, High , text = Text_Session ,xloc = xloc.bar_index, yloc = yloc.price, size = size.small ,
-         style = (Text_Session == 'Sydney' or Text_Session == 'Europe' ) ? label.style_label_lower_right  : 
-         Text_Session == 'Asia' ?  label.style_label_down :  label.style_label_lower_left,
-         textcolor = Color_Session, color = color.rgb(255, 255, 255, 100))
-    if On_Session and On_Session == On_Session[1]
-        box.set_top(BoX, High)
-        box.set_bottom(BoX, Low)
-        box.set_right(BoX, bar_index)
-        label.set_x(LabeL,math.round(math.avg(Bar,bar_index)))
-        label.set_y(LabeL, High)
+	if On_Session > On_Session[1]
+		BoX := box.new(bar_index,High, bar_index , Low, bgcolor = color.new(Color_Session, 85),
+		 border_color = color.rgb(34, 101, 155),
+		 border_style = line.style_dotted)
+		
+		LabeL := label.new(Bar, High , text = Text_Session ,xloc = xloc.bar_index, yloc = yloc.price, size = size.small ,
+		 style = (Text_Session == 'Sydney' or Text_Session == 'Europe' ) ? label.style_label_lower_right  : 
+		 Text_Session == 'Asia' ?  label.style_label_down :  label.style_label_lower_left,
+		 textcolor = Color_Session, color = color.rgb(255, 255, 255, 100))
+	if On_Session and On_Session == On_Session[1]
+		box.set_top(BoX, High)
+		box.set_bottom(BoX, Low)
+		box.set_right(BoX, bar_index)
+		label.set_x(LabeL,math.round(math.avg(Bar,bar_index)))
+		label.set_y(LabeL, High)
 
 
-    [High , Low ]
+	[High , Low ]
   
 
 if show_sesasia 
-    [HighA, LowA]  = LowHighSessionDetector(On_sesasia, sesasia_color,sesasia_text)
+	[HighA, LowA]  = LowHighSessionDetector(On_sesasia, sesasia_color,sesasia_text)
 
 if show_sesSydney 
-    [HighS, LowS]  = LowHighSessionDetector(On_sesSydney,sesSydney_color,sesSydney_text)
+	[HighS, LowS]  = LowHighSessionDetector(On_sesSydney,sesSydney_color,sesSydney_text)
 
 if show_sesTokyo 
-    [HighT, LowT]  = LowHighSessionDetector(On_sesTokyo,sesTokyo_color,sesTokyo_text)
+	[HighT, LowT]  = LowHighSessionDetector(On_sesTokyo,sesTokyo_color,sesTokyo_text)
 
 if show_sesShanghai 
-    [HighSh, LowSh]  = LowHighSessionDetector(On_sesShanghai,sesShanghai_color,sesShanghai_text)
+	[HighSh, LowSh]  = LowHighSessionDetector(On_sesShanghai,sesShanghai_color,sesShanghai_text)
 
 if show_sesEuro 
-    [HighE, LowE]  = LowHighSessionDetector(On_sesEuro,sesEuro_color,sesEuro_text)
+	[HighE, LowE]  = LowHighSessionDetector(On_sesEuro,sesEuro_color,sesEuro_text)
 
 if show_seslondon 
-    [HighL, LowL]  = LowHighSessionDetector(On_seslondon,seslondon_color,seslondon_text)
+	[HighL, LowL]  = LowHighSessionDetector(On_seslondon,seslondon_color,seslondon_text)
 
 if show_sesNewyork 
-    [HighN, LowN]  = LowHighSessionDetector(On_sesNewyork,sesNewyork_color,sesNewyork_text)
+	[HighN, LowN]  = LowHighSessionDetector(On_sesNewyork,sesNewyork_color,sesNewyork_text)
 
 if show_sesNYSE
-    [HighNY, LowNY]  = LowHighSessionDetector(On_sesNYSE,sesNYSE_color,sesNYSE_text)
+	[HighNY, LowNY]  = LowHighSessionDetector(On_sesNYSE,sesNYSE_color,sesNYSE_text)
 
 //Info Table
 
@@ -436,72 +435,70 @@ var Info_Table = table.new(position.top_right, 4, 10, bgcolor = #283c74, border_
  frame_color = #373a46 , frame_width = 1)
 
 if Show_Info_Table
-    table.cell(Info_Table, 0, 0, 'TradingFinder', text_color = color.white, text_size = size.small)
-    table.merge_cells(Info_Table, 0, 0, 3, 0)
-    table.cell(Info_Table, 0, 1, 'Session', text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 1, 1, 'Status', text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 1, 'Start(UTC)', text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 1, 'End(UTC)', text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 0, 0, 'TradingFinder', text_color = color.white, text_size = size.small)
+	table.merge_cells(Info_Table, 0, 0, 3, 0)
+	table.cell(Info_Table, 0, 1, 'Session', text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 1, 1, 'Status', text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 1, 'Start(UTC)', text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 1, 'End(UTC)', text_color = color.white, text_size = size.small)
 
-    table.cell(Info_Table, 0, 2, sesasia_text, text_color = sesasia_color, text_size = size.small)
-    table.cell(Info_Table, 0, 3, sesSydney_text, text_color = sesSydney_color, text_size = size.small)
-    table.cell(Info_Table, 0, 4, sesTokyo_text, text_color = sesTokyo_color, text_size = size.small)
-    table.cell(Info_Table, 0, 5, sesShanghai_text, text_color = color.new(sesShanghai_color, 1), text_size = size.small)   
-    table.cell(Info_Table, 0, 6, sesEuro_text, text_color = sesEuro_color, text_size = size.small)
-    table.cell(Info_Table, 0, 7, seslondon_text, text_color = seslondon_color, text_size = size.small)
-    table.cell(Info_Table, 0, 8, sesNewyork_text, text_color = sesNewyork_color, text_size = size.small)
-    table.cell(Info_Table, 0, 9, sesNYSE_text, text_color = sesNYSE_color, text_size = size.small)
+	table.cell(Info_Table, 0, 2, sesasia_text, text_color = sesasia_color, text_size = size.small)
+	table.cell(Info_Table, 0, 3, sesSydney_text, text_color = sesSydney_color, text_size = size.small)
+	table.cell(Info_Table, 0, 4, sesTokyo_text, text_color = sesTokyo_color, text_size = size.small)
+	table.cell(Info_Table, 0, 5, sesShanghai_text, text_color = color.new(sesShanghai_color, 1), text_size = size.small)   
+	table.cell(Info_Table, 0, 6, sesEuro_text, text_color = sesEuro_color, text_size = size.small)
+	table.cell(Info_Table, 0, 7, seslondon_text, text_color = seslondon_color, text_size = size.small)
+	table.cell(Info_Table, 0, 8, sesNewyork_text, text_color = sesNewyork_color, text_size = size.small)
+	table.cell(Info_Table, 0, 9, sesNYSE_text, text_color = sesNYSE_color, text_size = size.small)
+	
+	table.cell(Info_Table, 1, 2, (On_sesasia ? 'Open' : 'Closed')
+	  , bgcolor = On_sesasia ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 3, (On_sesSydney ? 'Open' : 'Closed')
+	  , bgcolor = On_sesSydney ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 4, (On_sesTokyo ? 'Open' : 'Closed')
+	  , bgcolor = On_sesTokyo ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 5, (On_sesShanghai ? 'Open' : 'Closed')
+	  , bgcolor = On_sesShanghai ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 6, (On_sesEuro ? 'Open' : 'Closed')
+	  , bgcolor = On_sesEuro ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 7, (On_seslondon ? 'Open' : 'Closed')
+	  , bgcolor = On_seslondon ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 8, (On_sesNewyork ? 'Open' : 'Closed')
+	  , bgcolor = On_sesNewyork ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
+	table.cell(Info_Table, 1, 9, (On_sesNYSE ? 'Open' : 'Closed')
+	  , bgcolor = On_sesNYSE ? #56a3a6 : #db504a
+	  , text_color = color.rgb(0, 0, 0)
+	  , text_size = size.small)
 
-    
-    
-    table.cell(Info_Table, 1, 2, (On_sesasia ? 'Open' : 'Closed')
-      , bgcolor = On_sesasia ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 3, (On_sesSydney ? 'Open' : 'Closed')
-      , bgcolor = On_sesSydney ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 4, (On_sesTokyo ? 'Open' : 'Closed')
-      , bgcolor = On_sesTokyo ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 5, (On_sesShanghai ? 'Open' : 'Closed')
-      , bgcolor = On_sesShanghai ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 6, (On_sesEuro ? 'Open' : 'Closed')
-      , bgcolor = On_sesEuro ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 7, (On_seslondon ? 'Open' : 'Closed')
-      , bgcolor = On_seslondon ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 8, (On_sesNewyork ? 'Open' : 'Closed')
-      , bgcolor = On_sesNewyork ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
-    table.cell(Info_Table, 1, 9, (On_sesNYSE ? 'Open' : 'Closed')
-      , bgcolor = On_sesNYSE ? #56a3a6 : #db504a
-      , text_color = color.rgb(0, 0, 0)
-      , text_size = size.small)
+	table.cell(Info_Table, 2, 2, '23:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 3, '23:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 4, '00:00' , text_color = color.white, text_size = size.small) 
+	table.cell(Info_Table, 2, 5, '01:30' , text_color = color.white, text_size = size.small)  
+	table.cell(Info_Table, 2, 6, '07:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 7, '08:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 8, '13:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 2, 9, '14:30' , text_color = color.white, text_size = size.small)
 
-    table.cell(Info_Table, 2, 2, '23:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 3, '23:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 4, '00:00' , text_color = color.white, text_size = size.small) 
-    table.cell(Info_Table, 2, 5, '01:30' , text_color = color.white, text_size = size.small)  
-    table.cell(Info_Table, 2, 6, '07:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 7, '08:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 8, '13:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 2, 9, '14:30' , text_color = color.white, text_size = size.small)
-
-    table.cell(Info_Table, 3, 2, '06:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 3, '05:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 4, '06:00' , text_color = color.white, text_size = size.small) 
-    table.cell(Info_Table, 3, 5, '06:57' , text_color = color.white, text_size = size.small)  
-    table.cell(Info_Table, 3, 6, '16:30' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 7, '16:30' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 8, '22:00' , text_color = color.white, text_size = size.small)
-    table.cell(Info_Table, 3, 9, '22:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 2, '06:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 3, '05:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 4, '06:00' , text_color = color.white, text_size = size.small) 
+	table.cell(Info_Table, 3, 5, '06:57' , text_color = color.white, text_size = size.small)  
+	table.cell(Info_Table, 3, 6, '16:30' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 7, '16:30' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 8, '22:00' , text_color = color.white, text_size = size.small)
+	table.cell(Info_Table, 3, 9, '22:00' , text_color = color.white, text_size = size.small)
 
