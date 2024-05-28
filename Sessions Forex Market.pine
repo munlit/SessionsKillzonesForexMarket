@@ -352,22 +352,22 @@ string timeSydn				= "Australia/Sydney" 						//	'UTC+10'
 //  ══  FM  ══
 //  ══  Options  ══
 
-optionLines		= input.string  (defval="Dashed",		title="Line",    		options = ["Solid", "Dotted", "Dashed"])
-optionTextSize	= input.string  (defval="Small",		title="Size",    		options = ["Tiny", "Small", "Auto", "Normal"])
+optionLines		= input.string  (defval="Dashed",		title="Line",			options = ["Solid", "Dotted", "Dashed"])
+optionTextSize	= input.string  (defval="Small",		title="Size",			options = ["Tiny", "Small", "Auto", "Normal"])
 
-optionSession	= input.string  (defval="Chicago",		title="Sesiones",    	options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
-optionKillZ		= input.string  (defval="Chicago",		title="KillZones",    	options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+optionSession	= input.string  (defval="Chicago",		title="Sesiones",		options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+optionKillZ		= input.string  (defval="Chicago",		title="KillZones",		options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
 
 //  ══════════
 //  ══  FM  ══
 //  ══  Types  ══
 
 type OHL
-    float O = open
-    float H = high
-    float L = low
-    float C = close
-    float V = volume
+	float O = open
+	float H = high
+	float L = low
+	float C = close
+	float V = volume
 
 //  ══════════
 //  ══  FM  ══
@@ -412,7 +412,14 @@ string switchKillZone = switch optionKillZ
 ohl = OHL.new()
 
 //  ══  Info Table  ══
-ShowInfoTable		= input(true,		'Info Table',		group = 'Table')
+ShowInfoTable			= input(true,		'Info Table',		group =	'Table')
+
+grpTableShow			= "Info"
+tableBorderColor		= input(color.new(colorArbeSecondary, 85),						title = "Marco",				inline = 'Table Info',				group = grpTableShow)
+tableGroundColor		= input(color.new(colorAxi413dab8, 25),							title = "Fondo",				inline = 'Table Info',				group = grpTableShow)
+tableTextColor			= input(color.new(colorGrayScalewebSeasalt, 40),				title = "Texto",				inline = 'Table Info',				group = grpTableShow)
+tableOpenColor			= input(color.new(colorUltrMenta40, 25),						title = "Open",					inline = 'Table Info',				group = grpTableShow)
+tableClosedColor		= input(color.new(colorTvNitRed40, 25),							title = "Closed",				inline = 'Table Info',				group = grpTableShow)
 
 //  ══════════
 //  ══  FM  ══
@@ -484,58 +491,58 @@ if sesNYSEShow
 //Info Table
 
 var Info_Table	= table.new(position.top_right, 4, 7,
- bgcolor		= #283c74,	border_color	= #53609bcb,
- border_width	= 1,		frame_color		= #373a46,
+ bgcolor		= tableGroundColor,		border_color	= tableBorderColor,
+ border_width	= 1,					frame_color		= #373a46,
  frame_width	= 1)
 
 if ShowInfoTable
-	table.cell			(Info_Table, 0, 0,		'Trading',			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 0, 0,		'Trading',			text_color = color.white,			text_size = switchText)
 	table.merge_cells	(Info_Table, 0, 0, 3, 0)
-	table.cell			(Info_Table, 0, 1,		'Sesión',			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 1, 1,		'Estado',			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 2, 1,		'Inicio',			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 3, 1,		'Cierre',			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 0, 1,		'Sesión',			text_color = color.white,			text_size = switchText)
+	table.cell			(Info_Table, 1, 1,		'Estado',			text_color = color.white,			text_size = switchText)
+	table.cell			(Info_Table, 2, 1,		'Inicio',			text_color = color.white,			text_size = switchText)
+	table.cell			(Info_Table, 3, 1,		'Cierre',			text_color = color.white,			text_size = switchText)
 
-	table.cell			(Info_Table, 0, 2,		sesSydneyText,		text_color = sesSydneyColor,		text_size = size.small)
-	table.cell			(Info_Table, 0, 3,		sesTokyoText,		text_color = sesTokyoColor,			text_size = size.small)
-	table.cell			(Info_Table, 0, 4,		sesLondonText,		text_color = sesLondonColor,		text_size = size.small)
-	table.cell			(Info_Table, 0, 5,		sesNewyorkText,		text_color = sesNewyorkColor,		text_size = size.small)
-	table.cell			(Info_Table, 0, 6,		sesNYSEText,		text_color = sesNYSEColor,			text_size = size.small)
+	table.cell			(Info_Table, 0, 2,		sesSydneyText,		text_color = sesSydneyColor,		text_size = switchText)
+	table.cell			(Info_Table, 0, 3,		sesTokyoText,		text_color = sesTokyoColor,			text_size = switchText)
+	table.cell			(Info_Table, 0, 4,		sesLondonText,		text_color = sesLondonColor,		text_size = switchText)
+	table.cell			(Info_Table, 0, 5,		sesNewyorkText,		text_color = sesNewyorkColor,		text_size = switchText)
+	table.cell			(Info_Table, 0, 6,		sesNYSEText,		text_color = sesNYSEColor,			text_size = switchText)
 	
 
-	table.cell			(Info_Table, 1, 2,		(OnSessSydney		? 'Open'		: 'Closed')
-	  , bgcolor									= OnSessSydney		? #56a3a6		: #db504a
-	  , text_color								= color.rgb(0, 0, 0)
-	  , text_size								= size.small)
+	table.cell			(Info_Table, 1, 2,		(OnSessSydney		? 'Open'				: 'Closed')
+	  , bgcolor									= OnSessSydney		? tableOpenColor		: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
 
-	table.cell			(Info_Table, 1, 3,		(OnSessTokyo		? 'Open'		: 'Closed')
-	  , bgcolor									= OnSessTokyo		? #56a3a6		: #db504a
-	  , text_color								= color.rgb(0, 0, 0)
-	  , text_size								= size.small)
+	table.cell			(Info_Table, 1, 3,		(OnSessTokyo		? 'Open'				: 'Closed')
+	  , bgcolor									= OnSessTokyo		? tableOpenColor		: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
 
-	table.cell			(Info_Table, 1, 4,		(OnSessLondon		? 'Open'		: 'Closed')
-	  , bgcolor									= OnSessLondon		? #56a3a6		: #db504a
-	  , text_color								= color.rgb(0, 0, 0)
-	  , text_size								= size.small)
+	table.cell			(Info_Table, 1, 4,		(OnSessLondon		? 'Open'				: 'Closed')
+	  , bgcolor									= OnSessLondon		? tableOpenColor		: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
 
-	table.cell			(Info_Table, 1, 5,		(OnSessNewyork		? 'Open'		: 'Closed')
-	  , bgcolor									= OnSessNewyork		? #56a3a6		: #db504a
-	  , text_color								= color.rgb(0, 0, 0)
-	  , text_size								= size.small)
+	table.cell			(Info_Table, 1, 5,		(OnSessNewyork		? 'Open'				: 'Closed')
+	  , bgcolor									= OnSessNewyork		? tableOpenColor		: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
 
-	table.cell			(Info_Table, 1, 6,		(OnSessNYSE			? 'Open'		: 'Closed')
-	  , bgcolor									= OnSessNYSE		? #56a3a6		: #db504a
-	  , text_color								= color.rgb(0, 0, 0)
-	  , text_size								= size.small)
+	table.cell			(Info_Table, 1, 6,		(OnSessNYSE			? 'Open'				: 'Closed')
+	  , bgcolor									= OnSessNYSE		? tableOpenColor		: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
 
-	table.cell			(Info_Table, 2, 2,		'17:00' ,			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 2, 3,		'18:00' ,			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 2, 4,		'02:00' ,			text_color = color.white,			text_size = size.small) 
-	table.cell			(Info_Table, 2, 5,		'07:00' ,			text_color = color.white,			text_size = size.small)  
-	table.cell			(Info_Table, 2, 6,		'08:30' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 2, 2,		'17:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(Info_Table, 2, 3,		'18:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(Info_Table, 2, 4,		'02:00' ,			text_color = tableTextColor,			text_size = switchText) 
+	table.cell			(Info_Table, 2, 5,		'07:00' ,			text_color = tableTextColor,			text_size = switchText)  
+	table.cell			(Info_Table, 2, 6,		'08:30' ,			text_color = tableTextColor,			text_size = switchText)
 
-	table.cell			(Info_Table, 3, 2,		'02:00' ,			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 3, 3,		'03:00' ,			text_color = color.white,			text_size = size.small)
-	table.cell			(Info_Table, 3, 4,		'11:00' ,			text_color = color.white,			text_size = size.small) 
-	table.cell			(Info_Table, 3, 5,		'15:57' ,			text_color = color.white,			text_size = size.small)  
-	table.cell			(Info_Table, 3, 6,		'15:00' ,			text_color = color.white,			text_size = size.small)
+	table.cell			(Info_Table, 3, 2,		'02:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(Info_Table, 3, 3,		'03:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(Info_Table, 3, 4,		'11:00' ,			text_color = tableTextColor,			text_size = switchText) 
+	table.cell			(Info_Table, 3, 5,		'15:57' ,			text_color = tableTextColor,			text_size = switchText)  
+	table.cell			(Info_Table, 3, 6,		'15:00' ,			text_color = tableTextColor,			text_size = switchText)
