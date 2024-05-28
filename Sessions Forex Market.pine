@@ -304,12 +304,6 @@ color colorAxiSecondary							= #282424					// AxiSecondary
 //  ══  FM  ══
 //  ══  Variables  ══
 
-//  ══  Session Asia  ══
-show_sesasia		= input(true,							title = '',						tooltip = 'Sydney + Tokyo',			group = 'Asia Session')
-sesasia_ses			= input.session('2300-0600',			title = '',						inline = 'sesasia',					group = 'Asia Session')
-sesasia_color		= input.color(#8bbcfc,					title = '',						inline = 'sesasia',					group = 'Asia Session')
-sesasia_text		= 'Asia'
-
 //  ══  Session Sydney  ══
 show_sesSydney		= input(true,							title = '',															group = 'Sydney Session') 
 sesSydney_ses		= input.session('2300-0500',			title = '',						inline = 'sesSydney',				group = 'Sydney Session')
@@ -322,19 +316,7 @@ sesTokyo_ses		= input.session('0000-0600',			title = '',						inline = 'sesTokyo
 sesTokyo_color		= input.color(#0CC1C0,					title = '',						inline = 'sesTokyo',				group = 'Tokyo Session')
 sesTokyo_text		= 'Tokyo'
 
-//  ══  Session Shanghai  ══
-show_sesShanghai	= input(false,							title = '',															group = 'Shanghai Session') 
-sesShanghai_ses		= input.session('0130-0657',			title = '',						inline = 'sesShanghai',				group = 'Shanghai Session')
-sesShanghai_color	= input.color(#FF1010,					title = '',						inline = 'sesShanghai',				group = 'Shanghai Session')
-sesShanghai_text	= 'Shanghai'
-
-//  ══  Session Europe  ══
-show_sesEuro		= input(true,							title = '',						tooltip = 'Frankfurt + London',		group = 'Europe Session') 
-sesEuro_ses			= input.session('0700-1630',			title = '',						inline = 'sesEuro',					group = 'Europe Session')
-sesEuro_color		= input.color(#BBE8B5,					title = '',						inline = 'sesEuro',					group = 'Europe Session')
-sesEuro_text		= 'Europe'
-
-show_seslondon		= input(true,							title = '',															group = ' London Session') 
+show_sesLondon		= input(true,							title = '',															group = ' London Session') 
 seslondon_ses		= input.session('0800-1630',			title = '',						inline = 'seslondon',				group = ' London Session')
 seslondon_color		= input.color(#ACBBE8,					title = '',						inline = 'seslondon',				group = ' London Session')
 seslondon_text		= 'London'
@@ -354,11 +336,8 @@ sesNYSE_text		= 'NYSE'
 Show_Info_Table		= input(true, 'Info Table', group   = 'Table')
 
 //  ══  Zones  ══
-On_sesasia			= math.sign(nz(time(timeframe.period,		sesasia_ses,		'UTC+0')))
-On_sesEuro			= math.sign(nz(time(timeframe.period,		sesEuro_ses,		'UTC+0')))
 On_sesTokyo			= math.sign(nz(time(timeframe.period,		sesTokyo_ses,		'UTC+0')))
-On_sesShanghai		= math.sign(nz(time(timeframe.period,		sesShanghai_ses,	'UTC+0')))
-On_seslondon		= math.sign(nz(time(timeframe.period,		seslondon_ses,		'UTC+0')))
+On_sesLondon		= math.sign(nz(time(timeframe.period,		seslondon_ses,		'UTC+0')))
 On_sesNewyork		= math.sign(nz(time(timeframe.period,		sesNewyork_ses,		'UTC+0')))
 On_sesNYSE			= math.sign(nz(time(timeframe.period,		sesNYSE_ses,		'UTC+0')))
 On_sesSydney		= math.sign(nz(time(timeframe.period,		sesSydney_ses,		'UTC+0')))
@@ -404,23 +383,14 @@ LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
 
 	[High , Low ]
 
-if show_sesasia 
-	[HighA, LowA]	= LowHighSessionDetector(On_sesasia,		sesasia_color,		sesasia_text)
-
 if show_sesSydney 
 	[HighS, LowS]	= LowHighSessionDetector(On_sesSydney,		sesSydney_color,	sesSydney_text)
 
 if show_sesTokyo 
 	[HighT, LowT]	= LowHighSessionDetector(On_sesTokyo,		sesTokyo_color,		sesTokyo_text)
 
-if show_sesShanghai 
-	[HighSh, LowSh]	= LowHighSessionDetector(On_sesShanghai,	sesShanghai_color,	sesShanghai_text)
-
-if show_sesEuro 
-	[HighE, LowE]	= LowHighSessionDetector(On_sesEuro,		sesEuro_color,		sesEuro_text)
-
-if show_seslondon 
-	[HighL, LowL]	= LowHighSessionDetector(On_seslondon,		seslondon_color,	seslondon_text)
+if show_sesLondon 
+	[HighL, LowL]	= LowHighSessionDetector(On_sesLondon,		seslondon_color,	seslondon_text)
 
 if show_sesNewyork 
 	[HighN, LowN]	= LowHighSessionDetector(On_sesNewyork,		sesNewyork_color,	sesNewyork_text)
@@ -470,8 +440,8 @@ if show_sesNYSE
 // 	  , bgcolor = On_sesEuro ? #56a3a6 : #db504a
 // 	  , text_color = color.rgb(0, 0, 0)
 // 	  , text_size = size.small)
-// 	table.cell(Info_Table, 1, 7, (On_seslondon ? 'Open' : 'Closed')
-// 	  , bgcolor = On_seslondon ? #56a3a6 : #db504a
+// 	table.cell(Info_Table, 1, 7, (On_sesLondon ? 'Open' : 'Closed')
+// 	  , bgcolor = On_sesLondon ? #56a3a6 : #db504a
 // 	  , text_color = color.rgb(0, 0, 0)
 // 	  , text_size = size.small)
 // 	table.cell(Info_Table, 1, 8, (On_sesNewyork ? 'Open' : 'Closed')
