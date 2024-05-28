@@ -1,11 +1,10 @@
 // ╔═══════════════════════════════════════╗
 // ║  @Ultr                                ║
-// ║  Sessions - Forex Market              ║
-// ║  © TFlab                              ║
+// ║  Sessions & Killzones - Forex Market  ║
 // ╚═══════════════════════════════════════╝
 
 //@version=5
-indicator("Sessions - Forex Market [@Ultr]", "Session FM[@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
+indicator("Sessions & KillZones Forex Market [@Ultr]", "Sessions & KillZones FM [@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
 
 //  ═════════════════
 //  ══  FM  ══
