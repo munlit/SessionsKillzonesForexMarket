@@ -344,7 +344,7 @@ killShowAlva		= input(false,										title = '',					inline = 'timeAlva',			gro
 killShowPre			= input(true,										title = '',					inline = 'timePre',				group = grpKillz) 
 killShowOpen		= input(true,										title = '',					inline = 'timeOpen',			group = grpKillz) 
 killShowRally		= input(true,										title = '',					inline = 'timeRally',			group = grpKillz) 
-killShowClose			= input(false,										title = '',					inline = 'timeClose',			group = grpKillz) 
+killShowClose		= input(false,										title = '',					inline = 'timeClose',			group = grpKillz) 
 
 killTimeAlva		= input.session('0430-0600',						title = '',					inline = 'timeAlva',			group = grpKillz)
 killTimePre			= input.session('0700-0745',						title = '',					inline = 'timePre',				group = grpKillz)
@@ -352,11 +352,11 @@ killTimeOpen		= input.session('0900-1045',						title = '',					inline = 'timeOp
 killTimeRally		= input.session('1130-1145',						title = '',					inline = 'timeRally',			group = grpKillz)
 killTimeClose		= input.session('1230-1345',						title = '',					inline = 'timeClose',			group = grpKillz)
 
-// sesSydneyColor		= input.color(color.new(colorTFlabSydney, 60),		title = '',					inline = 'timeAlva',			group = grpKillz)
-// sesTokyoColor		= input.color(color.new(colorTFlabAsia, 60),		title = '',					inline = 'timePre',				group = grpKillz)
-// sesLondonColor		= input.color(color.new(colorUltrRose20, 60),		title = '',					inline = 'timeOpen',			group = grpKillz)
-// sesNewyorkColor		= input.color(color.new(colorTvLightGreen50, 60),	title = '',					inline = 'timeRally',			group = grpKillz)
-// sesNYSEColor		= input.color(color.new(colorArbeSecondary, 60),	title = '',					inline = 'timeClose',			group = grpKillz)
+killColorAlva		= colorTFlabSydney
+killColorPre		= colorTFlabAsia
+killColorOpen		= colorUltrRose20
+killColorRally		= colorTvLightGreen50
+killColorClose		= colorArbeSecondary
 
 //  ══  Time Zone  ══
 string timeNYSE				= "UTC-5"									//	'UTC-5'
@@ -371,7 +371,7 @@ string timeSydn				= "Australia/Sydney" 						//	'UTC+10'
 //  ══  FM  ══
 //  ══  Options  ══
 
-optionLines		= input.string  (defval="Dashed",		title="Line",			options = ["Solid", "Dotted", "Dashed"])
+optionLines		= input.string  (defval="Dotted",		title="Line",			options = ["Solid", "Dotted", "Dashed"])
 optionTextSize	= input.string  (defval="Small",		title="Size",			options = ["Tiny", "Small", "Auto", "Normal"])
 
 optionSession	= input.string  (defval="Chicago",		title="Sesiones",		options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
@@ -431,14 +431,14 @@ string switchKillZone = switch optionKillZ
 ohl = OHL.new()
 
 //  ══  Info Table  ══
-ShowInfoTable			= input(true,		'Info Table',		group =	'Table')
+grpTableShow			= "Información"
+ShowInfoTable			= input(defval = true,											title = "",				inline = 'Table Info',				group =	grpTableShow)
 
-grpTableShow			= "Info"
-tableBorderColor		= input(color.new(colorArbeSecondary, 85),						title = "Marco",				inline = 'Table Info',				group = grpTableShow)
-tableGroundColor		= input(color.new(colorAxi413dab8, 25),							title = "Fondo",				inline = 'Table Info',				group = grpTableShow)
-tableTextColor			= input(color.new(colorGrayScalewebSeasalt, 40),				title = "Texto",				inline = 'Table Info',				group = grpTableShow)
-tableOpenColor			= input(color.new(colorUltrMenta40, 25),						title = "Open",					inline = 'Table Info',				group = grpTableShow)
-tableClosedColor		= input(color.new(colorTvNitRed40, 25),							title = "Closed",				inline = 'Table Info',				group = grpTableShow)
+tableBorderColor		= input(color.new(colorArbeSecondary, 85),						title = "",				inline = 'Table Info',				group = grpTableShow)
+tableGroundColor		= input(color.new(colorAxi413dab8, 25),							title = "",				inline = 'Table Info',				group = grpTableShow)
+tableTextColor			= input(color.new(colorGrayScalewebSeasalt, 40),				title = "",				inline = 'Table Info',				group = grpTableShow)
+tableOpenColor			= input(color.new(colorUltrMenta40, 25),						title = "",				inline = 'Table Info',				group = grpTableShow)
+tableClosedColor		= input(color.new(colorTvNitRed40, 25),							title = "",				inline = 'Table Info',				group = grpTableShow,			tooltip = "Marco, Fondo, Texto, Open, Close")
 
 //  ══════════
 //  ══  FM  ══
@@ -539,7 +539,7 @@ LowHighKillZonesDraw(onKillzones, colorKillzones) =>
 
 	if onKillzones > onKillzones[1]
 		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(colorKillzones, 85),
-		 border_color = color.new(colorKillzones, 65),
+		 border_color = color.new(colorKillzones, 60),
 		 border_width = 1,
 		 border_style = switchLines)
 		
@@ -553,19 +553,19 @@ LowHighKillZonesDraw(onKillzones, colorKillzones) =>
 	[High , Low ]
 
 if killShowAlva
-	[HighS, LowS]	= LowHighKillZonesDraw(OnKillZoneAlva,		sesSydneyColor)
+	[HighS, LowS]	= LowHighKillZonesDraw(OnKillZoneAlva,		killColorAlva)
 
 if killShowPre
-	[HighT, LowT]	= LowHighKillZonesDraw(OnKillZonePre,		sesTokyoColor)
+	[HighT, LowT]	= LowHighKillZonesDraw(OnKillZonePre,		killColorPre)
 
 if killShowOpen
-	[HighL, LowL]	= LowHighKillZonesDraw(OnKillZoneOpen,		sesLondonColor)
+	[HighL, LowL]	= LowHighKillZonesDraw(OnKillZoneOpen,		killColorOpen)
 
 if killShowRally
-	[HighN, LowN]	= LowHighKillZonesDraw(OnKillZoneRally,		sesNewyorkColor)
+	[HighN, LowN]	= LowHighKillZonesDraw(OnKillZoneRally,		killColorRally)
 
 if killShowClose
-	[HighNY, LowNY]	= LowHighKillZonesDraw(OnKillZoneClose,		sesNYSEColor)
+	[HighNY, LowNY]	= LowHighKillZonesDraw(OnKillZoneClose,		killColorClose)
 
 //  ══════════
 //  ══  FM  ══
