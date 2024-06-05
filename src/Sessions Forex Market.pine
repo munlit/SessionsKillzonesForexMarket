@@ -439,7 +439,7 @@ LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
 
 	if On_Session > On_Session[1]
 		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(Color_Session, 98),
-		 border_color = color.new(Color_Session, 35),
+		 border_color = color.new(Color_Session, 40),
 		 border_width = 2,
 		 border_style = switchLines)
 		
@@ -495,7 +495,7 @@ LowHighKillZonesDraw(onKillzones, colorKillzones) =>
 		Bar			:= 0
 
 	if onKillzones > onKillzones[1]
-		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(colorKillzones, 85),
+		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(colorKillzones, 78),
 		 border_color = color.new(colorKillzones, 60),
 		 border_width = 1,
 		 border_style = switchLines)
